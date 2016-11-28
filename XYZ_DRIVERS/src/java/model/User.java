@@ -19,12 +19,6 @@ public class User {
         
     }
 
-    public User(String id, String status, String password) {
-        this.id = id;
-        this.status = status;
-        this.password = password;
-    }
-
     public String getId() {
         return id;
     }

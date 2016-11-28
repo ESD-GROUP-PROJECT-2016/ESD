@@ -12,15 +12,11 @@
         <title>WELCOME TO XYZ DRIVERS</title>
     </head>
     <body>
-        <h1>This is expected to serve as a proper Web Page</h1>
-        <form method="POST" action="UserService.do">
-        <p />
-            View a table <br />
-            <input type="radio" name="tbl" value="List">List Users<br />
-            <input type="radio" name="tbl" value="NewUser">New User<br />
-            <input type="radio" name="tbl" value="Update">Password Change<br />
-            <input type="radio" name="tbl" value="Delete">Delete a User<br />
-            <input type=submit value="Action"> <br />
-        </form> 
+        <h1>Please Choose an option:</h1>
+        
+        <a href="Register.jsp">Register</a>
+        <br>
+        <br>
+        <a href ="Login.jsp">Login</a>
     </body>
 </html>

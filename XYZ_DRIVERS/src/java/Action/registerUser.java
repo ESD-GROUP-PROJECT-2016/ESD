@@ -6,6 +6,8 @@
 package Action;
 
 import model.Member;
+import model.User;
+import Content.DBServlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -33,7 +35,6 @@ public class registerUser extends HttpServlet {
         String address2 = request.getParameter("txtaddressln2");
         String postcode = request.getParameter("txtpostcode");
         String dob = request.getParameter("txtdob");
-        String password = request.getParameter("txtpassword");
         
         //Convert date of birth into Date format
         SimpleDateFormat dobFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -54,6 +55,19 @@ public class registerUser extends HttpServlet {
         mem.setDOR(registrationDate);
         mem.setStatus("APPLIED");
         mem.setBalance(1);
+        
+        //Create password from date of birth
+        String password = new SimpleDateFormat("ddMMyy").format(dob);
+        
+        //Add data to new User instance
+        User user = new User();
+        user.setId(userId);
+        user.setPassword(password);
+        user.setStatus("APPLIED");
+        
+        //Add data to Database instance
+        DBServlet db = new DBServlet();
+        
     }
     
 }

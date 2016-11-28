@@ -14,13 +14,13 @@
     <body>
          
         <h1>This is expected to serve as a proper Web Page</h1>
-        <form method="POST" action="MemberOptions.do">
+        <form method="POST" action="UserService.do">
         <p />
             View a table <br />
-            <input type="radio" name="tbl" value="List">Make Claims<br />
-            <input type="radio" name="tbl" value="NewUser">View Claims<br />
-            <input type="radio" name="tbl" value="Update">Submit Payment<br />
-            <input type="radio" name="tbl" value="Delete">Log-Out<br />
+            <input type="radio" name="tbl" value="List">List Users<br />
+            <input type="radio" name="tbl" value="NewUser">New User<br />
+            <input type="radio" name="tbl" value="Update">Password Change<br />
+            <input type="radio" name="tbl" value="Delete">Delete a User<br />
            
             <input type=submit value="Action"> <br />
         </form> 

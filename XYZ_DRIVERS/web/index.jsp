@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 09-Mar-2016, 16:52:19
-    Author     : me-aydin
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,15 +7,21 @@
         <title>WELCOME TO XYZ DRIVERS</title>
     </head>
     <body>
-        <h1>This is expected to serve as a proper Web Page</h1>
-        <form method="POST" action="UserService.do">
-        <p />
-            View a table <br />
-            <input type="radio" name="tbl" value="List">List Users<br />
-            <input type="radio" name="tbl" value="NewUser">New User<br />
-            <input type="radio" name="tbl" value="Update">Password Change<br />
-            <input type="radio" name="tbl" value="Delete">Delete a User<br />
-            <input type=submit value="Action"> <br />
-        </form> 
-    </body>
+        <form action="MemberLogin.do" method="POST">
+  <TABLE BORDER=0>
+    <TR>
+      <TD>Client ID:</TD>
+     </TR>
+    <TR>
+      <TD>Password:</TD>
+      <TD><INPUT TYPE="Password" NAME="Password" SIZE="40"></TD>
+    </TR>
+    <TR>
+      <TD align=center><INPUT TYPE="Submit" VALUE="Login">
+&        <INPUT TYPE="RESET"></TD>
+    </TR>
+  </TABLE>
+</FORM>
+<a href="MemRegister.jsp">If you have not yet got an account please click here!</a>
+        <\body>
 </html>

@@ -6,15 +6,31 @@
     </context-param>
     <servlet>
         <servlet-name>UserServLet</servlet-name>
-        <servlet-class>com.UserServLet</servlet-class>
+        <servlet-class>Content.UserServLet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>NewUser</servlet-name>
-        <servlet-class>pages.NewUser</servlet-class>
+        <servlet-class>Action.NewUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Update</servlet-name>
-        <servlet-class>pages.Update</servlet-class>
+        <servlet-class>Action.Update</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClaimsServLet</servlet-name>
+        <servlet-class>Content.ClaimsServLet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DBServlet</servlet-name>
+        <servlet-class>Content.DBServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MemberServLet</servlet-name>
+        <servlet-class>Content.MemberServLet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PayMent</servlet-name>
+        <servlet-class>Content.PayMent</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServLet</servlet-name>
@@ -27,6 +43,22 @@
     <servlet-mapping>
         <servlet-name>Update</servlet-name>
         <url-pattern>/Update.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClaimsServLet</servlet-name>
+        <url-pattern>/ClaimsServLet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DBServlet</servlet-name>
+        <url-pattern>/DBServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MemberServLet</servlet-name>
+        <url-pattern>/MemberServLet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PayMent</servlet-name>
+        <url-pattern>/PayMent</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

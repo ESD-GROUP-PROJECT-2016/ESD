@@ -21,6 +21,7 @@
             <input type="radio" name="tbl" value="NewUser">New User<br />
             <input type="radio" name="tbl" value="Update">Password Change<br />
             <input type="radio" name="tbl" value="Delete">Delete a User<br />
+           
             <input type=submit value="Action"> <br />
         </form> 
 

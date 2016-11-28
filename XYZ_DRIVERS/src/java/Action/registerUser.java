@@ -23,6 +23,8 @@ public class registerUser extends HttpServlet {
             throws ServletException, IOException, ParseException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         
+        String firstName = request.getParameter("txtFirstName");
+        String secondName = request.getParameter("txtlastname");
         
     }
     

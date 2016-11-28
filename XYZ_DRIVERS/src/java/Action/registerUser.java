@@ -21,6 +21,8 @@ public class registerUser extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, ClassNotFoundException, SQLException {
+        response.setContentType("text/html;charset=UTF-8");
+        
         
     }
     

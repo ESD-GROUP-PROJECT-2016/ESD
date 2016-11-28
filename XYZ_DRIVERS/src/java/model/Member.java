@@ -68,4 +68,9 @@ public class Member {
     public float getBalance() {
         return this.balance;
     }
+    
+    @Override
+    public String toString() {
+        return "Member{" + "name=" + name + ", address=" + address + ", dob=" + dob + ", dor=" + dor + ", status=" + status + ", balance=" + balance + '}';
+    }
 }

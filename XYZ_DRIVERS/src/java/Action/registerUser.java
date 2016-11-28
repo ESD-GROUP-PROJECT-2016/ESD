@@ -7,7 +7,7 @@ package Action;
 
 import model.Member;
 import model.User;
-import Content.DBServlet;
+import model.DBHandler;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -45,7 +45,7 @@ public class registerUser extends HttpServlet {
         
         //Create user name based on real name
         String initial = firstName.substring(0, 1);
-        String userId = (initial + "-" + secondName).toLowerCase();
+        String userID = (initial + "-" + secondName).toLowerCase();
         
         //Add data to new Member instance
         Member mem = new Member();
@@ -61,13 +61,19 @@ public class registerUser extends HttpServlet {
         
         //Add data to new User instance
         User user = new User();
-        user.setId(userId);
+        user.setId(userID);
         user.setPassword(password);
         user.setStatus("APPLIED");
         
         //Add data to Database instance
-        DBServlet db = new DBServlet();
+        DBHandler db = new DBHandler();
         
+        //Add member to database
+        db.addMember(mem, user);
+        
+        //Print data back to View
+        request.setAttribute("username", userID);
+        request.setAttribute("password", password);
     }
     
 }

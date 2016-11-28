@@ -7,11 +7,12 @@
         <title>WELCOME TO XYZ DRIVERS</title>
     </head>
     <body>
-<<<<<<< HEAD
+
         <form action="MemberLogin.do" method="POST">
   <TABLE BORDER=0>
     <TR>
       <TD>Client ID:</TD>
+     <TD> <INPUT TYPE="Text" NAME="UserName" SIZE="40"></TD>
      </TR>
     <TR>
       <TD>Password:</TD>
@@ -24,14 +25,6 @@
   </TABLE>
 </FORM>
 <a href="MemRegister.jsp">If you have not yet got an account please click here!</a>
-        <\body>
-=======
-        <h1>Please Choose an option:</h1>
-        
-        <a href="Register.jsp">Register</a>
-        <br>
-        <br>
-        <a href ="Login.jsp">Login</a>
-    </body>
->>>>>>> e1f2bebe13926c455efd0c2cea7662aab79cc468
+        </body>
+
 </html>

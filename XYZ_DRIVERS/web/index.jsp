@@ -12,6 +12,7 @@
   <TABLE BORDER=0>
     <TR>
       <TD>Client ID:</TD>
+     <TD> <INPUT TYPE="Text" NAME="UserName" SIZE="40"></TD>
      </TR>
     <TR>
       <TD>Password:</TD>

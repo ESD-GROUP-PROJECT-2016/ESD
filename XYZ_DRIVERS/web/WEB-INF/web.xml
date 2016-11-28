@@ -61,6 +61,7 @@
         <url-pattern>/PayMent</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>registerUser</servlet-name>
         <url-pattern>RegisterUser.do</url-pattern>
     </servlet-mapping>
     <session-config>

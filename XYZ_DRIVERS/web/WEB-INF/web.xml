@@ -60,6 +60,9 @@
         <servlet-name>PayMent</servlet-name>
         <url-pattern>/PayMent</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <url-pattern>RegisterUser.do</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -17,7 +17,7 @@
             color:black;
             text-align:center;
             font-family:calibri;
-            font-size:100%;   
+            font-size:100%   
         }           
     </style>
     <body>

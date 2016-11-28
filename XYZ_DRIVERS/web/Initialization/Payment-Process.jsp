@@ -12,6 +12,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form action="MakePayment.do" method="POST">
+
+                    <div class="row">
+                       
+                            <input id="amount" type="text" name="amount">
+                            <label for="amount">Payment amount</label>
+                    </div>
+                    <button  type="submit" name="action">Submit payment</button>
+                </form>
     </body>
 </html>

@@ -31,16 +31,11 @@
     <servlet>
         <servlet-name>PayMent</servlet-name>
         <servlet-class>Content.PayMent</servlet-class>
-    </servlet>
+    </servlet>  
     <servlet>
-        <servlet-name>registerUser</servlet-name>
-        <servlet-class>Action.registerUser</servlet-class>
+        <servlet-name>RegisterUser</servlet-name>
+        <servlet-class>Action.RegisterUser</servlet-class>
     </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>registerUser</servlet-name>
-        <url-pattern>/RegisterUser.do</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserServLet</servlet-name>
         <url-pattern>/UserService.do</url-pattern>
@@ -70,9 +65,14 @@
         <url-pattern>/PayMent</url-pattern>
     </servlet-mapping>
     
+    <servlet-mapping>
+        <servlet-name>RegisterUser</servlet-name>
+        <url-pattern>/RegisterUser.do</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-</web-app>
+    
+  /  </web-app>

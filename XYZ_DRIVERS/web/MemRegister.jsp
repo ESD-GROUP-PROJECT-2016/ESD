@@ -15,10 +15,6 @@
     <body>
         <form action="RegisterUser.do" method="post"name="frmAddCustomer">  <!--onsubmit="return validateuser1()">-->
   <table width="329" border="0" cellspacing="3">
-    <tr >
-      <td width="74" ><div align="left" class="style1">User-name: </div></td>
-      <td width="242"><input name="txtUserName" type="text"></td>
-    </tr>
       <tr >
       <td width="74" ><div align="left" class="style1">First name: </div></td>
       <td width="242"><input name="txtFirstName" type="text"></td>
@@ -42,10 +38,6 @@
     <tr>
       <td ><div align="left" class="style1">Date of Birth:</div></td>
       <td><input type="text" name="txtdob"></td>
-    </tr>
-    <tr >
-      <td><div align="left" class="style1">Password:</div></td>
-      <td><input type="password" name="txtpassword"></td>
     </tr>
   </table>
   <p>

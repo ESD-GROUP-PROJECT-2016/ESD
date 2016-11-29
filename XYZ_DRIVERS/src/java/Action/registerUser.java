@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -74,6 +75,10 @@ public class registerUser extends HttpServlet {
         //Print data back to View
         request.setAttribute("username", userID);
         request.setAttribute("password", password);
+        
+        //Return page
+        RequestDispatcher view = request.getRequestDispatcher("welcome.jsp");
+        view.forward(request, response);
     }
     
 }

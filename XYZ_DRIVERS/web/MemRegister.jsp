@@ -30,10 +30,13 @@
         <form action="RegisterUser.do" method="post"name="frmAddCustomer"> 
             <!--onsubmit="return validateuser1()">-->
   <table width="329" border="0" cellspacing="3">
+<<<<<<< HEAD:XYZ_DRIVERS/web/MemRegister.jsp
+=======
     <tr>
       <td width="74" ><div align="left">Username: </div></td>
       <td width="242"><input name="txtUserName" type="text"></td>
     </tr>
+>>>>>>> refs/remotes/origin/master:XYZ_DRIVERS/web/Initialization/MemRegister.jsp
       <tr >
       <td width="74" ><div align="left">First Name: </div></td>
       <td width="242"><input name="txtFirstName" type="text"></td>
@@ -58,10 +61,13 @@
       <td ><div align="left">Date of Birth:</div></td>
       <td><input type="text" name="txtdob"></td>
     </tr>
+<<<<<<< HEAD:XYZ_DRIVERS/web/MemRegister.jsp
+=======
     <tr>
       <td><div align="left">Password:</div></td>
       <td><input type="password" name="txtpassword"></td>
     </tr>
+>>>>>>> refs/remotes/origin/master:XYZ_DRIVERS/web/Initialization/MemRegister.jsp
   </table>
   <p>
     <input type="submit" name="Submit" value="Submit" >

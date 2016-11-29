@@ -1,29 +1,42 @@
+package Action;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Action;
-
-import model.Member;
-import model.User;
-import Content.DBServlet;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.DBHandler;
+import model.Member;
+import model.User;
 
 /**
  *
  * @author Tom
  */
-public class registerUser extends HttpServlet {
-    
+public class RegisterUser extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
@@ -45,7 +58,7 @@ public class registerUser extends HttpServlet {
         
         //Create user name based on real name
         String initial = firstName.substring(0, 1);
-        String userId = (initial + "-" + secondName).toLowerCase();
+        String userID = (initial + "-" + secondName).toLowerCase();
         
         //Add data to new Member instance
         Member mem = new Member();
@@ -61,13 +74,78 @@ public class registerUser extends HttpServlet {
         
         //Add data to new User instance
         User user = new User();
-        user.setId(userId);
+        user.setId(userID);
         user.setPassword(password);
         user.setStatus("APPLIED");
         
         //Add data to Database instance
-        DBServlet db = new DBServlet();
+        DBHandler db = new DBHandler();
         
+        //Add member to database
+        db.addMember(mem, user);
+        
+        //Print data back to View
+        request.setAttribute("username", userID);
+        request.setAttribute("password", password);
+        
+        //Return page
+        RequestDispatcher view = request.getRequestDispatcher("welcomeNewUser.jsp");
+        view.forward(request, response);
     }
-    
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }

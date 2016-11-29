@@ -22,9 +22,8 @@
     </style>
     <body>
         <h1>XYZ Drivers Association</h1>        
-        <form action="MemberLogin.do" method="POST">
-            <p1>
-                <TABLE style="">
+        <form action="MemberLogin.do" method="POST">  
+                <TABLE>
                     <TR>
                         <TD>Username:</TD>
                         <TD> <INPUT TYPE="Text" NAME="UserName" SIZE="40"></TD>
@@ -37,7 +36,7 @@
                             &        <INPUT TYPE="RESET"></TD>
                     </TR>
                 </TABLE>
-            </p1>
+            
         </FORM>
         <a href="MemRegister.jsp">If you have not yet got an account please click here!</a>
     </body>

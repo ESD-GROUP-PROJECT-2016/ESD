@@ -32,7 +32,8 @@
         }           
     </style>
     <body>
-        <h1>XYZ Drivers Association</h1>        
+        <h1>XYZ Drivers Association</h1>
+        <h2>Welcome! Please log in to continue.</h2>
         <form action="MemberLogin.do" method="POST">  
                 <TABLE>
                     <TR>

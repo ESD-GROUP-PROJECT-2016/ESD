@@ -6,7 +6,10 @@
 package ActionServlets;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +35,7 @@ public class NewUser extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession session = request.getSession(false);
@@ -46,6 +49,9 @@ public class NewUser extends HttpServlet {
 
         Date CurrentDate = new Date();
         
+        SimpleDateFormat dobFormat = new SimpleDateFormat("yyyy,MM,dd");
+        Date dob = dobFormat.parse(DOB);
+        
         String init = firstName.substring(0, 1);
         String userName = (init + "-" + lastName).toLowerCase();
         
@@ -56,8 +62,8 @@ public class NewUser extends HttpServlet {
         member.setuName(userName);
         member.setName(firstName + " " + lastName);
         member.setAddress(Fulladress + ", " + postcode);
-        member.setDob(DOB);
-        member.setDor(CurrentDate);
+        member.setDob(dob);
+        member.setRegDate(CurrentDate);
         member.setStatus("APPLIED");
         member.setBalance(10);
         
@@ -68,7 +74,7 @@ public class NewUser extends HttpServlet {
         
         String password = (firstName+lastName);
         
-        user.setId(userId);
+        user.setuName(userName);
         user.setPassword(password);
         user.setStatus("APPLIED");
         
@@ -76,10 +82,10 @@ public class NewUser extends HttpServlet {
         
         db.addMember(member, user);
         
-        request.setAttribute("username", userId);
+        request.setAttribute("username", userName);
         request.setAttribute("password", password);
         
-        RequestDispatcher view = request.getRequestDispatcher("welcome.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("Post-Registration.jsp");
         view.forward(request, response);
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -120,4 +126,5 @@ public class NewUser extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+}
 }

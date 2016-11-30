@@ -44,7 +44,7 @@
         }
         h2{
             color:lightgray;
-            text-align:left;
+            text-align:center;
             font-family:calibri;
             font-size:150%;
         }
@@ -60,38 +60,44 @@
     <body>
         <form action="NewUser.do" method="post"name="frmAddCustomer"> 
             <!--onsubmit="return validateuser1()">-->
-  <table width="500" border="0" cellspacing="3">
-      <tr>
-          <td width="74" ><div align="left">First Name: </div></td>
-          <td width="242"><input name="txtFirstName" type="text"></td>
-      </tr>
-      <tr>
-          <td><p align="left">Surname:</p></td>
-          <td><input name="txtlastname" type="text" id="txtlastname"></td>
-      </tr>
-      <tr>
-          <td><div align="left">Date of Birth:</div></td>
-          <td><input id="DOB" type="date" name="DOB"></td>     
-      </tr>
-      <tr>      
-      <div>
-          <input id="postcode" type="text" name="postcode">
-          <label for="postcode">Postcode</label>
-      </div>
-  </tr>
-      <button align="left" type="button" id="lookup" >Lookup Postcode
-          <i>Search</i>
-      </button>
-      <select id="addressChooser" name="address">
+            <table align="center" width="500" border="0" cellspacing="3">
+                <tr>
+                <div>
+                    <td><label for="firstname">First Name:</label></td>
+                    <td><input id="firstname" type="text" name="firstname"></td>
+                </div>
+                </tr>
+                <tr>
+                <div>
+                    <td><label for="surname">Surname: </label></td>
+                    <td><input id="surname" type="text" name="surname"></td>
+                </div>
+                </tr>
+                <tr>
+                <div>
+                    <td><label for="dob">Date of Birth:</label></td>
+                    <td> <input id="DOB" type="date" name="DOB"></td>
+                </div>
+                </tr>
+                <tr>      
+                <div>
+                    <td><label for="postcode">Postcode</label></td>
+                    <td> <input id="postcode" type="text" name="postcode"></td>
+                </div>
+                <td><button align="left" type="button" id="lookup" >Lookup Postcode
+                    </button>
+                <tr>
+                    <td><label>Select address</label></td>
+                    <td><select id="addressChooser" name="address"></select></td>
+                </tr>               
+                </div>
+                <tr>
+                </tr>
+                <tr>
 
-  </select>
-  <label>Select address</label>
-      </div>
-  </table>
-  <p>
-    <input type="submit" name="Submit" value="Submit" >
-  </p>
-</form>
-
+                    <td><td><input type="submit" name="Submit" value="Submit" ></td></td>
+                </tr>
+            </table>    
+        </form>
     </body>
 </html>

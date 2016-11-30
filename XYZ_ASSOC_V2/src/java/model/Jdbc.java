@@ -234,9 +234,9 @@ public class Jdbc {
 
         while (resultSet.next()) {
             Claims claim = new Claims();
-            claim.setuName(resultSet.getString("user name"));
+            claim.setuName(resultSet.getString("mem_id"));
             claim.setClaimDate(resultSet.getDate("date"));
-            claim.setReason(resultSet.getString("reason"));
+            claim.setReason(resultSet.getString("rationale"));
             claim.setStatus(resultSet.getString("status"));
             claim.setAmount(resultSet.getFloat("amount"));
             claim.setClaimId(resultSet.getInt("id"));

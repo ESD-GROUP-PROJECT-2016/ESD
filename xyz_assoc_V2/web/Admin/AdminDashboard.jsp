@@ -52,7 +52,7 @@
             <button type="button" onclick="location.href='ListPayments.jsp'">List all Payments</button>
             <br>
             <br>
-            <button type="button" onclick=("PaymentSubmission.jsp")>Reports</button>          
+            <button type="button" onclick="location.href='AnnualReport.jsp'">Annual Report</button>          
             <br>
             <br>                                    
             <button type="button" onclick="location.href='index.jsp'">Logout</button>

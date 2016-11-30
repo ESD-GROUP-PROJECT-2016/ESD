@@ -8,6 +8,7 @@ package com;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,13 +39,16 @@ public class MemberLogin extends HttpServlet {
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         
-        HttpSession session = request.getSession();
+       // HttpSession session = request.getSession();
         
+        Connection connection = null;
         Jdbc db = new Jdbc();
-        db.connect((Connection) request.getServletContext().getAttribute("connection"));
-        session.setAttribute("dbbean", db);
+        String url = "jdbc:mysql://localhost:3306/xyz_assoc";
+        connection = DriverManager.getConnection(url, "root", "");
+        db.connect(connection); //(Connection) request.getServletContext().getAttribute("connection")
+       // session.setAttribute("dbbean", db);
         
-        if ((Connection) request.getServletContext().getAttribute("connection") == null) {
+        if (connection == null) {
             request.getRequestDispatcher("/WEB-INF/conErr.jsp");
         } 
         else {
@@ -55,7 +59,7 @@ public class MemberLogin extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/conErr.jsp");
             }
             else {
-                Member mem = db.getMember(ID);
+               // Member mem = db.getMember(ID);
                 request.getRequestDispatcher("MemberDashboard.jsp");
                 
             }

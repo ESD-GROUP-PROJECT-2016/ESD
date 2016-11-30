@@ -45,8 +45,21 @@ public class Jdbc {
     
     public void addMember(Member member, User user) {
         try {
+<<<<<<< HEAD
+<<<<<<< HEAD
           Class.forName("com.mysql.jdbc.Driver");
 
+=======
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        String dbname = "xyz_assoc";
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbname.trim(), "root", "");
+        
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (1,2,3,4,5,6,7)");
+>>>>>>> login edits
+=======
+          Class.forName("com.mysql.jdbc.Driver");
+
+>>>>>>> origin/master
         connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
 
                 
@@ -101,6 +114,7 @@ public class Jdbc {
     }
     public Member getMember(String userName) throws SQLException, ClassNotFoundException {
         Member mem = null;
+       try {
         Class.forName("com.mysql.jdbc.Driver");
         
         Connection con = DriverManager.getConnection("jdbc:mysql//localhost/xyz_assoc", "root", "");
@@ -119,7 +133,10 @@ public class Jdbc {
             mem.setStatus(result.getString("status"));
             mem.setBalance(result.getFloat("balance"));
         }
-        
+       
+       }  catch(SQLException e) {
+           Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, e);
+       }
         return mem;
     }
     
@@ -186,7 +203,7 @@ public class Jdbc {
     public boolean exists(String user) {
         boolean bool = false;
         try  {
-            select("select username from users where username='"+user+"'");
+            select("select username from users where username='"+user.trim()+"'");
             if(rs.next()) {
                 System.out.println("TRUE");         
                 bool = true;
@@ -249,6 +266,7 @@ public class Jdbc {
             System.out.println(e);
         }
     }
+<<<<<<< HEAD
     public static void main(String[] args) throws SQLException {
 //        String str = "select * from users";
 //        String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('meaydin', 'meaydin')";
@@ -278,4 +296,7 @@ public class Jdbc {
  //       System.out.println(jdbc.retrieve(str));
    //     jdbc.closeAll();
     }            
+=======
+               
+>>>>>>> login edits
 }

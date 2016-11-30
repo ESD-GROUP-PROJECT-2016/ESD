@@ -1,6 +1,6 @@
 <%-- 
-    Document   : MemberDashboard
-    Created on : 30-Nov-2016, 00:32:02
+    Document   : AdminDashboard
+    Created on : 30-Nov-2016, 19:51:47
     Author     : Lewis
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Dashboard</title>
+        <title>Admin Dashboard</title>
     </head>
-        <style>
+           <style>
         h1{
             color:dodgerblue;
             text-align:center;
@@ -20,7 +20,7 @@
         }
         h2{
             color:lightgray;
-            text-align:left;
+            text-align:center;
             font-family:calibri;
             font-size:150%;
         }
@@ -33,8 +33,8 @@
     </style>
     <body>
         <h1>XYZ Drivers Association</h1>
-        <h2>Welcome to your administration dashboard!</h2>
-        <form method="POST" action="UserService.do">
+        <h2>Welcome to your dashboard</h2>
+        <form method="POST" action="">
         <p/>
             View a table <br/>
             <input type="radio" name="tbl" value="List"> List Users <br />
@@ -45,4 +45,3 @@
         </form> 
     </body>
 </html>
-

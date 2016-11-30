@@ -8,9 +8,6 @@
 <!DOCTYPE html>
 <html>
     <script>
-        $('.datepicker').pickadate({
-            formatSubmit: 'dd-MM-yyyy'
-        });
         $(document).ready(function () {
             $('select').material_select();
         });

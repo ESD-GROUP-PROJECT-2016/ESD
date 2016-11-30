@@ -47,8 +47,7 @@ public class Jdbc {
         try {
         Class.forName("com.mysql.jdbc.Driver");
         String dbname = "xyz_assoc";
-      // connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbname.trim(), "root", "");
-        
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbname.trim(), "root", "");
         
         PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (?,?,?,?,?,?,?)");
         //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/xyz_assoc", "root", "");
@@ -59,7 +58,7 @@ public class Jdbc {
         //Members structure (`id`, `name`, `address`, `dob`, `dor`, `status`, `balance`)
         ps.setString(1, member.getuName());
         ps.setString(2, member.getName());
-        ps.setString(3, member.getAddress());
+       // ps.setString(3, member.getAddress());
         ps.setString(4, member.getDob());
         ps.setString(5, member.getRegDate());
         ps.setString(6, "APPLIED");
@@ -67,7 +66,7 @@ public class Jdbc {
         ps.executeUpdate();
         
         //Users structure ('id', 'password', 'status')
-        PreparedStatement userPs = connection.prepareStatement("INSET INTO users(id, password, status) VALUES (?,?,?)");
+        PreparedStatement userPs = connection.prepareStatement("INSET INTO 'users' ('id', 'password', 'status') VALUES (?,?,?)");
         
         userPs.setString(1, user.getuName());
         userPs.setString(2, user.getPassword());

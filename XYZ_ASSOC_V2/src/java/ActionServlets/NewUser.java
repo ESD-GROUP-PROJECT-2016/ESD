@@ -50,7 +50,7 @@ public class NewUser extends HttpServlet {
       //  String address2 = request.getParameter("txtaddressln2");
         String postcode = request.getParameter("postcode");
         String DOB = request.getParameter("DOB");
-        System.out.println(firstName);
+       
 
         Date CurrentDate = new Date();
         
@@ -69,7 +69,7 @@ public class NewUser extends HttpServlet {
         member.setuName(userName);
         member.setName(firstName + " " + lastName);
       //  member.setAddress(Fulladress + ", " + postcode);
-       // member.setDob(dob);
+        member.setDob(DOB);
         member.setRegDate(currDate);
         member.setStatus("APPLIED");
         member.setBalance(10);       
@@ -84,7 +84,7 @@ public class NewUser extends HttpServlet {
         user.setStatus("APPLIED");
         
         Jdbc db = new Jdbc();
-        db.connect((Connection) request.getServletContext().getAttribute("connection"));
+        //db.connect((Connection) request.getServletContext().getAttribute("connection"));
         
         db.addMember(member, user);
         

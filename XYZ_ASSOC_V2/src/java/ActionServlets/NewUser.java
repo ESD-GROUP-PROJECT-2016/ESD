@@ -54,7 +54,7 @@ public class NewUser extends HttpServlet {
 
         Date CurrentDate = new Date();
         
-        SimpleDateFormat dobFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat dobFormat = new SimpleDateFormat("dd/mm/yyyy");
        // Date dob = dobFormat.parse(DOB);
         
         String currDate = dobFormat.format(CurrentDate);

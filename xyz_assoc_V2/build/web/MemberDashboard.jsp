@@ -4,6 +4,7 @@
     Author     : Lewis
 --%>
 
+<%@page import="model.Member"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +21,7 @@
         }
         h2{
             color:lightgray;
-            text-align:left;
+            text-align:center;
             font-family:calibri;
             font-size:150%;
         }
@@ -33,15 +34,26 @@
     </style>
     <body>
         <h1>XYZ Drivers Association</h1>
-        <h2>Welcome to your administration dashboard!</h2>
-        <form method="POST" action="UserService.do">
-        <p/>
-            View a table <br/>
-            <input type="radio" name="tbl" value="List"> List Users <br />
-            <input type="radio" name="tbl" value="NewUser"> New User <br />
-            <input type="radio" name="tbl" value="Update"> Password Change <br />
-            <input type="radio" name="tbl" value="Delete"> Delete a User <br />
-            <input type=submit value="Action"> <br />
+        <h2>Your Dashboard</h2>
+        <form align="center" method="POST" action="UserService.do">
+
+            <p1>
+            <br>
+            <br>
+            <button type="button" onclick="submitclaim.java">Submit Claim</button>
+            <br>
+            <br>
+            <button type="button" onclick="submittedclaims">View Submitted Claims</button>
+            <br>
+            <br>
+            <button type="button" onclick="viewpayments">View Payments</button>
+            <br>
+            <br>
+            <button href="PaymentSubmission.jsp" type="button" >Submit Payment</button>          
+            <br>
+            <br>                                    
+            <button type="button" onclick="logout.java">Logout</button>
+            </p1>
         </form> 
     </body>
 </html>

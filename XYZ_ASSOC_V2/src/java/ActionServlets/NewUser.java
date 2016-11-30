@@ -53,7 +53,7 @@ public class NewUser extends HttpServlet {
 
         Date CurrentDate = new Date();
         
-        SimpleDateFormat dobFormat = new SimpleDateFormat("yyyy,MM,dd");
+        SimpleDateFormat dobFormat = new SimpleDateFormat("dd,MM,yyyy");
         Date dob = dobFormat.parse(DOB);
         
         String init = firstName.substring(0, 1);

@@ -36,36 +36,33 @@
     <body>
         <form action="NewUser.do" method="post"name="frmAddCustomer"> 
             <!--onsubmit="return validateuser1()">-->
-  <table width="329" border="0" cellspacing="3">
-      <tr >
-      <td width="74" ><div align="left">First Name: </div></td>
-      <td width="242"><input name="txtFirstName" type="text"></td>
-    </tr>
-    <tr>
-      <td><p align="left">Surname:</p></td>
-      <td><input name="txtlastname" type="text" id="txtlastname"></td>
-    </tr>
+  <table width="500" border="0" cellspacing="3">
       <tr>
-      <td><p align="left">Address line 1:</p></td>
-      <td><input name="txtaddressln1" type="text" id="txtaddressln1"></td>
-    </tr>
-    <tr>
-      <td><p align="left">Address line 2:</p></td>
-      <td><input name="txtaddressln2" type="text" id="txtaddressln2"></td>
-    </tr>
-    <tr>
-        <td><label for="postcode">Postcode</label></td>
-        <td><input id="postcode" type="text" name="postcode"></td>
-    <tr>
-    <button align="left" type="button" id="lookup" >Lookup postcode
-                    <i>Search</i>
-                </button>
+          <td width="74" ><div align="left">First Name: </div></td>
+          <td width="242"><input name="txtFirstName" type="text"></td>
+      </tr>
+      <tr>
+          <td><p align="left">Surname:</p></td>
+          <td><input name="txtlastname" type="text" id="txtlastname"></td>
+      </tr>
+      <tr>
+          <td>
+              <div align="left">Date of Birth:</div></td>
+          <td><input id="DOB" type="date" name="DOB"></td>
+      </tr>
+      <tr>
+          <td><label for="postcode">Postcode</label></td>
+          <td><input id="postcode" type="text" name="postcode"></td>
+      <tr>
+      <button align="left" type="button" id="lookup" >Lookup postcode
+          <i>Search</i>
+      </button>
   </tr>
-  <tr>
-      <td>
-          <div align="left">Date of Birth:</div></td>
-      <td><input id="DOB" type="date" name="txtdob"></td>
-  </tr>
+  <select id="addressChooser" name="address">
+
+  </select>
+  <label>Select address</label>
+      </div>
   </table>
   <p>
     <input type="submit" name="Submit" value="Submit" >
@@ -80,9 +77,8 @@
         });
         $("#lookup").click(function () {
             var postcode = $('#postcode').val();
-            var apiKey = "AYNEiPCuzkyW_QpLcrtL8g6560"
+            var apiKey = "AYNEiPCuzkyW_QpLcrtL8g6560";
             var url = "https://api.getAddress.io/v2/uk/" + postcode + "?api-key=" + apiKey;
-
             $.ajax({
                 url: url,
                 dataType: 'json',

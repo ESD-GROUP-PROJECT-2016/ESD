@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.sql.Time;
 import static java.sql.Types.NULL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -241,6 +242,34 @@ public class Jdbc {
         }
          
     }
+    
+    public List<Claims> getAllClaims() throws ClassNotFoundException, SQLException {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        Class.forName("com.mysql.jdbc.Driver");
+
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
+
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery("SELECT * FROM claims");
+
+        List<Claims> claims = new ArrayList<>();
+
+        while (resultSet.next()) {
+            Claims claim = new Claims();
+            claim.setuName(resultSet.getString("user name"));
+            claim.setClaimDate(resultSet.getDate("date"));
+            claim.setReason(resultSet.getString("reason"));
+            claim.setStatus(resultSet.getString("status"));
+            claim.setAmount(resultSet.getFloat("amount"));
+            claim.setClaimId(resultSet.getInt("id"));
+            claims.add(claim);
+        }
+        return claims;
+    }
+    
     public void update(String[] str) {
         PreparedStatement ps = null;
         try {

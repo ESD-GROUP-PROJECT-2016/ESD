@@ -46,6 +46,7 @@ public class Jdbc {
     public void addMember(Member member, User user) {
         try {
 <<<<<<< HEAD
+<<<<<<< HEAD
           Class.forName("com.mysql.jdbc.Driver");
 
 =======
@@ -55,6 +56,10 @@ public class Jdbc {
         
         PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (1,2,3,4,5,6,7)");
 >>>>>>> login edits
+=======
+          Class.forName("com.mysql.jdbc.Driver");
+
+>>>>>>> origin/master
         connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
 
                 

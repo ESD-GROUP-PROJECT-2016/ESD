@@ -42,7 +42,7 @@ public class NewUser extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         
-        HttpSession session = request.getSession(false);
+      //  HttpSession session = request.getSession(false);
         
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("surname");
@@ -78,7 +78,7 @@ public class NewUser extends HttpServlet {
         
         String password = (firstName+lastName);
         //Create backwards password---------------------------------------------------------------
-        
+       
         user.setuName(userName);
         user.setPassword(password);
         user.setStatus("APPLIED");
@@ -88,16 +88,16 @@ public class NewUser extends HttpServlet {
         
         db.addMember(member, user);
         
-        if ((Connection)request.getServletContext().getAttribute("connection")==null) {
-            request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);         
-        }
-        else {
+      //  if ((Connection)request.getServletContext().getAttribute("db.connection")==null) {
+       //     request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);         
+        //}
+        //else {
             request.setAttribute("username", userName);
             request.setAttribute("password", password);
         
             request.getRequestDispatcher("Post-Registration.jsp").forward(request, response);
 
-        }
+        //}
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

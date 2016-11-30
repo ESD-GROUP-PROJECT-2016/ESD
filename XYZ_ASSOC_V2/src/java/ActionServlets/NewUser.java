@@ -22,7 +22,6 @@ import model.Jdbc;
 import model.Member;
 import model.User;
 
-
 /**
  *
  * @author me-aydin
@@ -37,11 +36,11 @@ public class NewUser extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.text.ParseException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("<html><h1>We are here</h1></html>");
         
         HttpSession session = request.getSession(false);
         
@@ -81,23 +80,20 @@ public class NewUser extends HttpServlet {
         user.setPassword(password);
         user.setStatus("APPLIED");
         
-        Jdbc dbname = new Jdbc();
-        dbname.connect((Connection) request.getServletContext().getAttribute("connection"));
+        Jdbc db = new Jdbc();
+        db.connect((Connection) request.getServletContext().getAttribute("connection"));
         
-        dbname.addMember(member, user);
+        db.addMember(member, user);
         
         if ((Connection)request.getServletContext().getAttribute("connection")==null) {
-           // request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
-            response.sendRedirect("/WEB-INF/conErr.jsp");
-            
+            request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);         
         }
         else {
             request.setAttribute("username", userName);
             request.setAttribute("password", password);
         
-           // RequestDispatcher view = request.getRequestDispatcher("Post-Registration.jsp");
-           // view.forward(request, response);
-            response.sendRedirect("Post-Registration.jsp");
+            request.getRequestDispatcher("Post-Registration.jsp").forward(request, response);
+
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -114,11 +110,11 @@ public class NewUser extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-            System.out.println("<html><h1>We are here</h1></html>");
         } catch (ParseException ex) {
             Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+        }
+    
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -133,7 +129,6 @@ public class NewUser extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-            System.out.println("<html><h1>We are here</h1></html>");
         } catch (ParseException ex) {
             Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
         }

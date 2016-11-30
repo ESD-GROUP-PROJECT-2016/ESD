@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Jdbc;
+import model.Member;
 
 /**
  *
@@ -54,7 +55,9 @@ public class MemberLogin extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/conErr.jsp");
             }
             else {
-                db.getMember(ID);
+                Member mem = db.getMember(ID);
+                request.getRequestDispatcher("MemberDashboard.jsp");
+                
             }
             
         }

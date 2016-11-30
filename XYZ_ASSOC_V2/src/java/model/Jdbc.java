@@ -66,11 +66,7 @@ public class Jdbc {
         ps.executeUpdate();
         
         //Users structure ('id', 'password', 'status')
-<<<<<<< HEAD
-        PreparedStatement userPs = connection.prepareStatement("INSET INTO users(id, password, status) VALUES (1,2,3)");
-=======
         PreparedStatement userPs = connection.prepareStatement("INSET INTO 'users' ('id', 'password', 'status') VALUES (?,?,?)");
->>>>>>> origin/master
         
         userPs.setString(1, user.getuName());
         userPs.setString(2, user.getPassword());
@@ -86,10 +82,10 @@ public class Jdbc {
     public boolean checkMember(String id, String password) {
         boolean st = false;
         try {
-            PreparedStatement ps3 = connection.prepareStatement("select * from users where id=? and password=?");
-            ps3.setString(1, id);
-            ps3.setString(2, password);
-            ResultSet rs = ps3.executeQuery();
+            PreparedStatement ps = connection.prepareStatement("select * from users where id=? and password=?");
+            ps.setString(1, id);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
             st = rs.next();
 
         } catch (SQLException ex) {

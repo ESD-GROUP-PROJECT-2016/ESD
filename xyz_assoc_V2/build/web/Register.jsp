@@ -1,7 +1,7 @@
 <%-- 
     Document   : Register
     Created on : 30-Nov-2016, 00:14:16
-    Author     : TOBY WHITE
+    Author     : Lewis
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -33,7 +33,7 @@
     </style>
     <body>
         <h1>XYZ Drivers Association</h1>
-        <h2>Welcome to your administration dashboard</h2>
+        <h2>Administration Center</h2>
         <form align="center" method="POST" action="">
             <p1>
             <br>
@@ -52,7 +52,7 @@
             <button type="button" onclick="location.href='ListPayments.jsp'">List all Payments</button>
             <br>
             <br>
-            <button type="button" onclick=("PaymentSubmission.jsp")>Reports</button>          
+            <button type="button" onclick="location.href='AnnualReport.jsp'">Annual Report</button>          
             <br>
             <br>                                    
             <button type="button" onclick="location.href='index.jsp'">Logout</button>

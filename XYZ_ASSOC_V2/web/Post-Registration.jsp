@@ -20,7 +20,7 @@
         }
         h2{
             color:lightgray;
-            text-align:left;
+            text-align:center;
             font-family:calibri;
             font-size:150%;
         }
@@ -32,9 +32,9 @@
         }           
     </style>
     <body>
-    <div class="container">
+    <div align='center' class="container">
             <h1>XYZ Drivers Association</h1>
-            <h2> Thank you for successfully registering to XYZ </h2>
+            <h2> Thank you and welcome to XYZ Association! </h2>
             <p><b>Your username is:  </b></p>
             <% out.println(request.getAttribute("username")); %>
             <br>
@@ -43,7 +43,7 @@
             
             <br>
             <br>
-            <a href="index.jsp">Click here to log in(once you have written these details down).</a>
+            <button type="button" onclick="location.href='index.jsp'">Login</button>  
         </div>
     </body>
 </html>

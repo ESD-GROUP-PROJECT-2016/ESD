@@ -11,16 +11,37 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <style>
+        h1{
+            color:dodgerblue;
+            text-align:center;
+            font-family:calibri;
+            font-size:300%;
+        }
+        p1{
+            color:black;
+            text-align:center;
+            font-family:calibri;
+            font-size:100%   
+        }           
+    </style>
     <body>
-        <h1>This is expected to serve as a proper Web Page</h1>
-        <form method="POST" action="UserService.do">
-        <p />
-            View a table <br />
-            <input type="radio" name="tbl" value="List">List Users<br />
-            <input type="radio" name="tbl" value="NewUser">New User<br />
-            <input type="radio" name="tbl" value="Update">Password Change<br />
-            <input type="radio" name="tbl" value="Delete">Delete a User<br />
-            <input type=submit value="Action"> <br />
-        </form> 
-    </body>
+        <h1>XYZ Drivers Association TEST</h1>        
+        <form action="MemberLogin.do" method="POST">  
+                <TABLE>
+                    <TR>
+                        <TD>Username:</TD>
+                        <TD> <INPUT TYPE="Text" NAME="UserName" SIZE="40"></TD>
+                    <TR>
+                        <TD>Password:</TD>
+                        <TD><INPUT TYPE="Password" NAME="Password" SIZE="40"></TD>
+                    </TR>
+                    <TR>
+                        <TD align=center><INPUT TYPE="Submit" VALUE="Login">
+                            &        <INPUT TYPE="RESET"></TD>
+                    </TR>
+                </TABLE>
+            
+        </FORM>
+        <a href="MemRegister.jsp">If you have not yet got an account please click here!</a>
 </html>

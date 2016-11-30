@@ -9,22 +9,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Registration</title>
     </head>
-      <style>
+    <style>
         h1{
             color:dodgerblue;
             text-align:center;
             font-family:calibri;
             font-size:300%;
         }
+        h2{
+            color:lightgray;
+            text-align:center;
+            font-family:calibri;
+            font-size:150%;
+        }
         p1{
             color:black;
             text-align:center;
             font-family:calibri;
             font-size:100%   
-        }           
+        }              
     </style>
+    <h2>Please enter your details to register.</h2>
     <body>
         <form action="RegisterUser.do" method="post"name="frmAddCustomer"> 
             <!--onsubmit="return validateuser1()">-->

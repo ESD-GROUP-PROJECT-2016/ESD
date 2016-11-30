@@ -18,6 +18,12 @@
             font-family:calibri;
             font-size:300%;
         }
+        h2{
+            color:lightgray;
+            text-align:center;
+            font-family:calibri;
+            font-size:150%;
+        }
         p1{
             color:black;
             text-align:center;

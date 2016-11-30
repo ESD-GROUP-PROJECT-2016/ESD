@@ -9,10 +9,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome</title>
+        <title>Dashboard</title>
     </head>
+        <style>
+        h1{
+            color:dodgerblue;
+            text-align:center;
+            font-family:calibri;
+            font-size:300%;
+        }
+        h2{
+            color:lightgray;
+            text-align:center;
+            font-family:calibri;
+            font-size:150%;
+        }
+        p1{
+            color:black;
+            text-align:center;
+            font-family:calibri;
+            font-size:100%   
+        }           
+    </style>
     <body>
-        <h1>Welcome to XYZ Drivers Association</h1>
+        <h1>XYZ Drivers Association</h1>
+        <h2>Welcome to your dashboard</h2>
         <form method="POST" action="UserService.do">
         <p/>
             View a table <br/>

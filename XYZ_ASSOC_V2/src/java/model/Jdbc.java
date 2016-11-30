@@ -46,11 +46,17 @@ public class Jdbc {
     public void addMember(Member member, User user) {
         try {
         Class.forName("com.mysql.jdbc.Driver");
+<<<<<<< HEAD
         String dbname = "xyz_assoc";
       // connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbname.trim(), "root", "");
         
         
         PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (?,?,?,?,?,?,?)");
+=======
+        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/xyz_assoc", "root", "");
+        
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO members(id, name, address, dob, dor, status, balance) VALUES (?,?,?,?,?,?,?)");
+>>>>>>> origin/master
         
         java.sql.Date dobSql = new java.sql.Date(member.getDob().getTime());
         java.sql.Date dorSql = new java.sql.Date(member.getRegDate().getTime());

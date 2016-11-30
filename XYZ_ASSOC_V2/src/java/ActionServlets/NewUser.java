@@ -44,29 +44,30 @@ public class NewUser extends HttpServlet {
         
         HttpSession session = request.getSession(false);
         
-        String firstName = request.getParameter("txtfirstname");
-        String lastName = request.getParameter("txtlastname");
-        String address1 = request.getParameter("txtaddressln1");
-        String address2 = request.getParameter("txtaddressln2");
-        String postcode = request.getParameter("txtpostcode");
-        String DOB = request.getParameter("txtdob");
+        String firstName = request.getParameter("firstname");
+        String lastName = request.getParameter("surname");
+      //  String address1 = request.getParameter("txtaddressln1");
+      //  String address2 = request.getParameter("txtaddressln2");
+        String postcode = request.getParameter("postcode");
+        String DOB = request.getParameter("DOB");
+        System.out.println(firstName);
 
         Date CurrentDate = new Date();
         
         SimpleDateFormat dobFormat = new SimpleDateFormat("dd,MM,yyyy");
-        Date dob = dobFormat.parse(DOB);
+       // Date dob = dobFormat.parse(DOB);
         
         String init = firstName.substring(0, 1);
         String userName = (init + "-" + lastName).toLowerCase();
         
-        String Fulladress =(address1 + "," +address2);
+      //  String Fulladress =(address1 + "," +address2);
         
         Member member = new Member();
         
         member.setuName(userName);
         member.setName(firstName + " " + lastName);
-        member.setAddress(Fulladress + ", " + postcode);
-        member.setDob(dob);
+      //  member.setAddress(Fulladress + ", " + postcode);
+       // member.setDob(dob);
         member.setRegDate(CurrentDate);
         member.setStatus("APPLIED");
         member.setBalance(10);       

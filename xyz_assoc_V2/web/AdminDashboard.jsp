@@ -55,7 +55,7 @@
             <button type="button" onclick=("PaymentSubmission.jsp")>Reports</button>          
             <br>
             <br>                                    
-            <button type="button" onclick="logout.java">Logout</button>
+            <button type="button" onclick="location.href='index.jsp'">Logout</button>
             </p1>
         </form> 
     </body>

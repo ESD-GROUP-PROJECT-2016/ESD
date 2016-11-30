@@ -49,10 +49,10 @@
             <button type="button" onclick="viewpayments">View Payments</button>
             <br>
             <br>
-            <button type="button" onclick="location.href='PaymentSubmission.jsp'" >Submit Payment</button>          
+            <button type="button" onclick="location.href='PaymentSubmission.jsp'">Submit Payment</button>          
             <br>
             <br>                                    
-            <button type="button" onclick="logout.java">Logout</button>
+            <button type="button" onclick="location.href='index.jsp'">Logout</button>
             </p1>
         </form> 
     </body>

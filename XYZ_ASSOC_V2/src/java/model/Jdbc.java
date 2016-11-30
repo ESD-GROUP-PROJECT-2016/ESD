@@ -45,7 +45,7 @@ public class Jdbc {
     
     public void addMember(Member member, User user) {
         try {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
         String dbname = "xyz_assoc";
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbname.trim(), "root", "");
         
@@ -95,6 +95,7 @@ public class Jdbc {
     }
     public Member getMember(String userName) throws SQLException, ClassNotFoundException {
         Member mem = null;
+       try {
         Class.forName("com.mysql.jdbc.Driver");
         
         Connection con = DriverManager.getConnection("jdbc:mysql//localhost/xyz_assoc", "root", "");
@@ -113,7 +114,10 @@ public class Jdbc {
             mem.setStatus(result.getString("status"));
             mem.setBalance(result.getFloat("balance"));
         }
-        
+       
+       }  catch(SQLException e) {
+           Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, e);
+       }
         return mem;
     }
     
@@ -180,7 +184,7 @@ public class Jdbc {
     public boolean exists(String user) {
         boolean bool = false;
         try  {
-            select("select username from users where username='"+user+"'");
+            select("select username from users where username='"+user.trim()+"'");
             if(rs.next()) {
                 System.out.println("TRUE");         
                 bool = true;
@@ -243,33 +247,5 @@ public class Jdbc {
             System.out.println(e);
         }
     }
-    public static void main(String[] args) throws SQLException {
-        String str = "select * from users";
-        String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('meaydin', 'meaydin')";
-        String update = "UPDATE `Users` SET `password`='eaydin' WHERE `username`='eaydin' ";
-        String db = "MyDB";
-        
-        Jdbc jdbc = new Jdbc(str);
-        Connection conn = null;
-                try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db.trim(), "root", "");
-        }
-        catch(ClassNotFoundException | SQLException e){
-            
-        }
-        jdbc.connect(conn);
-        String [] users = {"birgul12","han","han"};
-        System.out.println(jdbc.retrieve(str));
-        if (!jdbc.exists(users[0]))
-            jdbc.insert(users);            
-        else {
-                jdbc.update(users);
-                System.out.println("user name exists, change to another");
-        }
-        jdbc.delete("aydinme");
-        
-        System.out.println(jdbc.retrieve(str));
-        jdbc.closeAll();
-    }            
+               
 }

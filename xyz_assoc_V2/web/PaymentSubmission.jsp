@@ -1,22 +1,17 @@
 <%-- 
-    Document   : LoginError
-    Created on : 30-Nov-2016, 01:32:54
+    Document   : PaymentSubmission
+    Created on : 30-Nov-2016, 02:24:43
     Author     : Lewis
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<script>
-    setTimeout(function(){
-        document.location = "index.jsp";
-    },5000);
-    </script>
-    
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login Error</title>
+        <title>Payments</title>
     </head>
-       <style>
+    <style>
         h1{
             color:dodgerblue;
             text-align:center;
@@ -25,7 +20,7 @@
         }
         h2{
             color:lightgray;
-            text-align:center;
+            text-align:left;
             font-family:calibri;
             font-size:150%;
         }
@@ -38,7 +33,12 @@
     </style>
     <body>
         <h1>XYZ Drivers Association</h1>
-        <h2>Oops...You have entered incorrect Login details.</h2>
-        <p1> Have no fear! You will automatically be returned to the login page!</p1>
+        <h2>Payment Portal</h2>
+    <p1>Press 'Submit Payment' to submit your payment.</p1>
+    <button type="button" onclick="alert('Payment Successful!')">Submit Payment</button>
+    
+    
+
     </body>
 </html>
+window.location= 'index.jsp';

@@ -33,15 +33,30 @@
     </style>
     <body>
         <h1>XYZ Drivers Association</h1>
-        <h2>Welcome to your dashboard</h2>
-        <form method="POST" action="">
-        <p/>
-            View a table <br/>
-            <input type="radio" name="tbl" value="List"> List Users <br />
-            <input type="radio" name="tbl" value="NewUser"> New User <br />
-            <input type="radio" name="tbl" value="Update"> Password Change <br />
-            <input type="radio" name="tbl" value="Delete"> Delete a User <br />
-            <input type=submit value="Action"> <br />
+        <h2>Welcome to your administration dashboard</h2>
+        <form align="center" method="POST" action="">
+            <p1>
+            <br>
+            <button href="PaymentSubmission.do" type="button">List all Members</button>          
+            <br>
+            <br>
+            <button type="button" onclick=("PaymentSubmission.jsp")>List all Outstanding Balances</button>          
+            <br>
+            <br>
+            <button type="button" onclick="submitclaim.java">List All Claims</button>
+            <br>
+            <br>
+            <button type="button" onclick="viewpayments">List all Pending Members</button>
+            <br>
+            <br>
+            <button type="button" onclick="submittedclaims">List all Payments</button>
+            <br>
+            <br>
+            <button type="button" onclick=("PaymentSubmission.jsp")>Reports</button>          
+            <br>
+            <br>                                    
+            <button type="button" onclick="logout.java">Logout</button>
+            </p1>
         </form> 
     </body>
 </html>

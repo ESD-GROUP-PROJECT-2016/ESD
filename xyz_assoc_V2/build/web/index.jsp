@@ -20,7 +20,7 @@
         }
         h2{
             color:lightgray;
-            text-align:left;
+            text-align:center;
             font-family:calibri;
             font-size:150%;
         }
@@ -31,11 +31,11 @@
             font-size:100%   
         }           
     </style>
-    <body>
+    <body align='center'>
         <h1>XYZ Drivers Association</h1>
         <h2>Welcome! Please log in to continue.</h2>
         <form action="MemberLogin.do" method="POST">  
-                <TABLE>
+                <TABLE align='center'>
                     <TR>
                         <TD>Username:</TD>
                         <TD> <INPUT id = "username" TYPE="Text" NAME="UserName" SIZE="40"></TD>
@@ -43,12 +43,17 @@
                         <TD>Password:</TD>
                         <TD><INPUT id = "password" TYPE="Password" NAME="Password" SIZE="40"></TD>
                     </TR>
-                    <TR>
-                        <TD align=center><INPUT TYPE="Submit" VALUE="Login">
-                            &        <INPUT TYPE="RESET"></TD>
-                    </TR>
                 </TABLE>
+            <tr>
+                <TD align=center><INPUT TYPE="Submit" VALUE="Login"></td>
+                <td> & </td>     <td>  <INPUT TYPE="RESET"></TD>
+            </tr>
             
         </FORM>
-        <a href="Register.jsp">If you have not yet got an account please click here!</a>
+        <table>
+            <tr>
+            <button type="button" onclick="location.href='Register.jsp'">Register</button>    
+            </tr>
+        </table>
+        
 </html>

@@ -54,8 +54,8 @@ public class NewUser extends HttpServlet {
 
         Date CurrentDate = new Date();
         
-        SimpleDateFormat dobFormat = new SimpleDateFormat("dd,MM,yyyy");
-       // Date dob = dobFormat.parse(DOB);
+        SimpleDateFormat dobFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date dob = dobFormat.parse(DOB);
         
         String init = firstName.substring(0, 1);
         String userName = (init + "-" + lastName).toLowerCase();

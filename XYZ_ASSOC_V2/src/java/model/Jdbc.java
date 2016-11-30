@@ -43,6 +43,32 @@ public class Jdbc {
        connection = con;
     }
     
+    public void addMember(Member member, User user) {
+        try {
+        Class.forName("com.mysql.jdbc.Driver");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
+        
+        PreparedStatement ps = null;
+        String query = "INSERT INTO members VALUES (?,?,?,?,?,?,?)";
+        
+        java.sql.Date dobSql = new java.sql.Date(member.getDob().getTime());
+        java.sql.Date dorSql = new java.sql.Date(member.getRegDate().getTime());
+        
+        //Members structure (`id`, `name`, `address`, `dob`, `dor`, `status`, `balance`)
+        ps.setString(1, member.getuName());
+        ps.setString(2, member.getName());
+        ps.setString(3, member.getAddress());
+        ps.setDate(4, dobSql);
+        ps.setDate(5, dorSql);
+        ps.setString(6, "APPLIED");
+        ps.setFloat(7, member.getBalance());
+        
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
     private ArrayList rsToList() throws SQLException {
         ArrayList aList = new ArrayList();
 

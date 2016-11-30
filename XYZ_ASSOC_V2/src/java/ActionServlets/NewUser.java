@@ -21,6 +21,7 @@ import model.Jdbc;
 import model.Member;
 import model.User;
 
+
 /**
  *
  * @author me-aydin
@@ -67,12 +68,9 @@ public class NewUser extends HttpServlet {
         member.setDob(dob);
         member.setRegDate(CurrentDate);
         member.setStatus("APPLIED");
-        member.setBalance(10);
+        member.setBalance(10);       
         
-        
-        User user = new User();
-        
-        
+        User user = new User();          
         
         String password = (firstName+lastName);
         
@@ -80,7 +78,7 @@ public class NewUser extends HttpServlet {
         user.setPassword(password);
         user.setStatus("APPLIED");
         
-        DatabaseHandler db = new DatabaseHandler();
+        Jdbc db = new Jdbc();
         
         db.addMember(member, user);
         

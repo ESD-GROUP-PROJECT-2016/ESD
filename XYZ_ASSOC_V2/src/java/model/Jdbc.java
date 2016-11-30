@@ -40,25 +40,31 @@ public class Jdbc {
     }
     
     public void connect(Connection con){
-       connection = con;
+       this.connection = con;
     }
     
     public void addMember(Member member, User user) {
         try {
+<<<<<<< HEAD
+          Class.forName("com.mysql.jdbc.Driver");
+
+=======
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         String dbname = "xyz_assoc";
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbname.trim(), "root", "");
         
         PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (1,2,3,4,5,6,7)");
+>>>>>>> login edits
         connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
+
                 
        // java.sql.Date dobSql = new java.sql.Date(member.getDob().getTime());
        // java.sql.Date dorSql = new java.sql.Date(member.getRegDate().getTime());
-        
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO members VALUES (?,?,?,?,?,?,?)");
         //Members structure (`id`, `name`, `address`, `dob`, `dor`, `status`, `balance`)
         ps.setString(1, member.getuName());
         ps.setString(2, member.getName());
-       // ps.setString(3, member.getAddress());
+        ps.setString(3,"1 home street"); //member.getAddress());
         ps.setString(4, member.getDob());
         ps.setString(5, member.getRegDate());
         ps.setString(6, "APPLIED");
@@ -66,12 +72,20 @@ public class Jdbc {
         ps.executeUpdate();
         
         //Users structure ('id', 'password', 'status')
-        PreparedStatement userPs = connection.prepareStatement("INSET INTO 'users' ('id', 'password', 'status') VALUES (?,?,?)");
+
+        PreparedStatement userPs = connection.prepareStatement("INSET INTO users VALUES (?,?,?)");
+
         
         userPs.setString(1, user.getuName());
         userPs.setString(2, user.getPassword());
         userPs.setString(3, user.getStatus());
         userPs.executeUpdate();
+ 
+
+    
+        
+       
+
         
         }
         catch (Exception e) {
@@ -247,5 +261,37 @@ public class Jdbc {
             System.out.println(e);
         }
     }
+<<<<<<< HEAD
+    public static void main(String[] args) throws SQLException {
+//        String str = "select * from users";
+//        String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('meaydin', 'meaydin')";
+//        String update = "UPDATE `Users` SET `password`='eaydin' WHERE `username`='eaydin' ";
+ //       String db = "MyDB";
+ //       
+ //       Jdbc jdbc = new Jdbc(str);
+ //       Connection conn = null;
+ //               try {
+ //           Class.forName("com.mysql.jdbc.Driver");
+ //           conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db.trim(), "root", "");
+ //       }
+ //       catch(ClassNotFoundException | SQLException e){
+ //           
+ //       }
+ //       jdbc.connect(conn);
+ //       String [] users = {"birgul12","han","han"};
+ //       System.out.println(jdbc.retrieve(str));
+ //       if (!jdbc.exists(users[0]))
+ //           jdbc.insert(users);            
+ //       else {
+ //               jdbc.update(users);
+ //               System.out.println("user name exists, change to another");
+  //      }
+  //      jdbc.delete("aydinme");
+        
+ //       System.out.println(jdbc.retrieve(str));
+   //     jdbc.closeAll();
+    }            
+=======
                
+>>>>>>> login edits
 }

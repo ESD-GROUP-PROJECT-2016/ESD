@@ -40,7 +40,7 @@
             <button type="button" onclick="location.href='ListMembers.jsp'">List all Members</button>          
             <br>
             <br>
-            <button type="button" onclick=("PaymentSubmission.jsp")>List all Outstanding Balances</button>          
+            <button type="button" onclick="location.href='ListOutBalances.jsp'">List all Outstanding Balances</button>          
             <br>
             <br>
             <button type="button" onclick="location.href='ListPendingClaims.jsp'">List Pending Claims</button>

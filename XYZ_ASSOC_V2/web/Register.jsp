@@ -72,7 +72,7 @@
                 </tr>
                 <tr>
                 <div>
-                    <td><label for="dob">Date of Birth:</label></td>
+                    <td><label for="dob">Date of Birth: </label></td>
                     <td> <input id="DOB" type="date" name="DOB"></td>
                 </div>
                 </tr>

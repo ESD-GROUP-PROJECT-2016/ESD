@@ -64,12 +64,9 @@ public class Jdbc {
         ps.executeUpdate();
         
         //Users structure ('id', 'password', 'status')
-<<<<<<< HEAD
+
         PreparedStatement userPs = connection.prepareStatement("INSET INTO users VALUES (?,?,?)");
 
-=======
-        PreparedStatement userPs = connection.prepareStatement("INSET INTO 'users' ('id', 'password', 'status') VALUES (?,?,?)");
->>>>>>> origin/master
         
         userPs.setString(1, user.getuName());
         userPs.setString(2, user.getPassword());

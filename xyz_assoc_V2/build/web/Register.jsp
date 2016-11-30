@@ -34,7 +34,7 @@
     <h1>XYZ Drivers Association</h1>
     <h2>Please enter your details to register.</h2>
     <body>
-        <form action="RegisterUser.do" method="post"name="frmAddCustomer"> 
+        <form action="NewUser.do" method="post"name="frmAddCustomer"> 
             <!--onsubmit="return validateuser1()">-->
   <table width="329" border="0" cellspacing="3">
       <tr >

@@ -37,19 +37,19 @@
         <form align="center" method="POST" action="">
             <p1>
             <br>
-            <button href="PaymentSubmission.do" type="button">List all Members</button>          
+            <button type="button" onclick="location.href='ListMembers.jsp'">List all Members</button>          
             <br>
             <br>
-            <button type="button" onclick=("PaymentSubmission.jsp")>List all Outstanding Balances</button>          
+            <button type="button" onclick="location.href='ListOutBalances.jsp'">List all Outstanding Balances</button>          
             <br>
             <br>
-            <button type="button" onclick="submitclaim.java">List All Claims</button>
+            <button type="button" onclick="location.href='ListPendingClaims.jsp'">List Pending Claims</button>
             <br>
             <br>
-            <button type="button" onclick="viewpayments">List all Pending Members</button>
+            <button type="button" onclick="location.href='ListPendingMembers.jsp'">List Pending Members</button>
             <br>
             <br>
-            <button type="button" onclick="submittedclaims">List all Payments</button>
+            <button type="button" onclick="location.href='ListPayments.jsp'">List all Payments</button>
             <br>
             <br>
             <button type="button" onclick=("PaymentSubmission.jsp")>Reports</button>          

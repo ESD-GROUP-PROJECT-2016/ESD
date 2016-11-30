@@ -46,7 +46,7 @@ public class Jdbc {
     public void addMember(Member member, User user) {
         try {
         Class.forName("com.mysql.jdbc.Driver");
-        //connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
+        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/xyz_assoc", "root", "");
         
         PreparedStatement ps = connection.prepareStatement("INSERT INTO members(id, name, address, dob, dor, status, balance) VALUES (?,?,?,?,?,?,?)");
         

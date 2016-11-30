@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Error</title>
@@ -36,5 +36,6 @@
         <h2>Oops...You have entered incorrect Login details.</h2>
         <p1> Have no fear! You will automatically be returned to the login page!</p1>
     </body>
+    <% Thread.sleep(5000);
+        response.sendRedirect("index.jsp"); %>
 </html>
-response.sendRedirect("/index.jsp");

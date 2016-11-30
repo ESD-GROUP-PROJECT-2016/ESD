@@ -45,22 +45,17 @@ public class Jdbc {
     
     public void addMember(Member member, User user) {
         try {
-<<<<<<< HEAD
-<<<<<<< HEAD
-          Class.forName("com.mysql.jdbc.Driver");
 
-=======
+          Class.forName("com.mysql.jdbc.Driver");
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         String dbname = "xyz_assoc";
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbname.trim(), "root", "");
         
-        PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (1,2,3,4,5,6,7)");
->>>>>>> login edits
-=======
+      
+
           Class.forName("com.mysql.jdbc.Driver");
 
->>>>>>> origin/master
-        connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
+       connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
 
                 
        // java.sql.Date dobSql = new java.sql.Date(member.getDob().getTime());
@@ -266,7 +261,7 @@ public class Jdbc {
             System.out.println(e);
         }
     }
-<<<<<<< HEAD
+
     public static void main(String[] args) throws SQLException {
 //        String str = "select * from users";
 //        String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('meaydin', 'meaydin')";
@@ -295,8 +290,5 @@ public class Jdbc {
         
  //       System.out.println(jdbc.retrieve(str));
    //     jdbc.closeAll();
-    }            
-=======
-               
->>>>>>> login edits
+    }           
 }

@@ -15,7 +15,7 @@
             locality: 'long_name',
             administrative_area_level_1: 'short_name',
             country: 'long_name',
-            postal_code: 'short_name'
+            postcode: 'short_name'
         };
 
         function initAutocomplete() {
@@ -117,30 +117,30 @@
                            onFocus="geolocate()" type="text"></input></td></td>
             </tr>
             <tr>
-                <td class="label">Street address</td>
+                <td class="label">Street Address:</td>
                 <td class="slimField"><input class="field" id="street_number"
                                              disabled="true"></input></td>
                 <td class="wideField" colspan="2"><input class="field" id="route"
                                                          disabled="true"></input></td>
             </tr>
             <tr>
-                <td class="label">City</td>
+                <td class="label">City:</td>
                 <td class="wideField" colspan="3"><input class="field" id="locality"
                                                          disabled="true"></input></td>
             </tr>
             <tr>
-                <td class="label">State</td>
+                <td class="label">State:</td>
                 <td class="slimField"><input class="field"
                                              id="administrative_area_level_1" disabled="true"></input></td>
             </tr>
             <tr>
-                <td class="label">Country</td>
+                <td class="label">Country:</td>
                 <td class="wideField" colspan="3"><input class="field"
                                                          id="country" disabled="true"></input></td>
             </tr>
             <tr>
-                <td class="label">Post Code</td>
-                <td class="wideField"><input class="field" id="postal_code"
+                <td class="label">Post Code:</td>
+                <td class="wideField"><input class="field" id="postcode"
                                              disabled="true"></input></td>
             </tr>
             <form action="NewUser.do" method="post"name="frmAddCustomer"> 

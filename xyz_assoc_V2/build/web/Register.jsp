@@ -32,7 +32,7 @@
         }              
     </style>
     <h1>XYZ Drivers Association</h1>
-    <h2>Please enter your details to register.</h2>
+    <h2>Please enter your details to register...</h2>
     <body>
         <form action="NewUser.do" method="post"name="frmAddCustomer"> 
             <!--onsubmit="return validateuser1()">-->
@@ -54,17 +54,47 @@
       <td><input name="txtaddressln2" type="text" id="txtaddressln2"></td>
     </tr>
     <tr>
-      <td><p align="left">Postcode:</p></td>
-      <td><input name="txtpostcode" type="text" id="txtpostcode"></td>
-    </tr>
+        <td><label for="postcode">Postcode</label></td>
+        <td><input id="postcode" type="text" name="postcode"></td>
     <tr>
-      <td ><div align="left">Date of Birth:</div></td>
-      <td><input type="text" name="txtdob"></td>
-    </tr>
+    <button align="left" type="button" id="lookup" >Lookup postcode
+                    <i>Search</i>
+                </button>
+  </tr>
+  <tr>
+      <td>
+          <div align="left">Date of Birth:</div></td>
+      <td><input id="DOB" type="date" name="txtdob"></td>
+  </tr>
   </table>
   <p>
     <input type="submit" name="Submit" value="Submit" >
   </p>
 </form>
+            <script>
+        $('.datepicker').pickadate({
+            formatSubmit: 'yyyy-mm-dd'
+        });
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+        $("#lookup").click(function () {
+            var postcode = $('#postcode').val();
+            var apiKey = "AYNEiPCuzkyW_QpLcrtL8g6560"
+            var url = "https://api.getAddress.io/v2/uk/" + postcode + "?api-key=" + apiKey;
+
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result.Addresses);
+                    for (i = 0; i < result.Addresses.length; i++) {
+                        $("#addressChooser").append("<option value='" + result.Addresses[i] + "'>" + result.Addresses[i] + "</option>");
+                    }
+                    $('select').material_select();
+                    $("#submitButton").removeClass("disabled");
+                }});
+        });
+    </script>
     </body>
 </html>

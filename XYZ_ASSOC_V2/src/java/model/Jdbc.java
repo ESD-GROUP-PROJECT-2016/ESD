@@ -43,6 +43,40 @@ public class Jdbc {
        connection = con;
     }
     
+    public void addMember(Member member, User user) {
+        try {
+        Class.forName("com.mysql.jdbc.Driver");
+        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/xyz_assoc", "root", "");
+        
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO members(id, name, address, dob, dor, status, balance) VALUES (?,?,?,?,?,?,?)");
+        
+        java.sql.Date dobSql = new java.sql.Date(member.getDob().getTime());
+        java.sql.Date dorSql = new java.sql.Date(member.getRegDate().getTime());
+        
+        //Members structure (`id`, `name`, `address`, `dob`, `dor`, `status`, `balance`)
+        ps.setString(1, member.getuName());
+        ps.setString(2, member.getName());
+        ps.setString(3, member.getAddress());
+        ps.setDate(4, dobSql);
+        ps.setDate(5, dorSql);
+        ps.setString(6, "APPLIED");
+        ps.setFloat(7, member.getBalance());
+        ps.executeUpdate();
+        
+        //Users structure ('id', 'password', 'status')
+        PreparedStatement userPs = connection.prepareStatement("INSET INTO users(id, password, status) VALUES (?,?,?)");
+        
+        userPs.setString(1, user.getuName());
+        userPs.setString(2, user.getPassword());
+        userPs.setString(3, user.getStatus());
+        userPs.executeUpdate();
+        
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
     private ArrayList rsToList() throws SQLException {
         ArrayList aList = new ArrayList();
 

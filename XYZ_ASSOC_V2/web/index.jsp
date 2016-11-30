@@ -43,5 +43,5 @@
                 </TABLE>
             
         </FORM>
-        <a href="MemRegister.jsp">If you have not yet got an account please click here!</a>
+        <a href="Register.jsp">If you have not yet got an account please click here!</a>
 </html>

@@ -20,7 +20,7 @@
         }
         h2{
             color:lightgray;
-            text-align:center;
+            text-align:left;
             font-family:calibri;
             font-size:150%;
         }
@@ -31,6 +31,7 @@
             font-size:100%   
         }              
     </style>
+    <h1>XYZ Drivers Association</h1>
     <h2>Please enter your details to register.</h2>
     <body>
         <form action="RegisterUser.do" method="post"name="frmAddCustomer"> 

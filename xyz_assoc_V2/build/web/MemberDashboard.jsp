@@ -20,7 +20,7 @@
         }
         h2{
             color:lightgray;
-            text-align:center;
+            text-align:left;
             font-family:calibri;
             font-size:150%;
         }

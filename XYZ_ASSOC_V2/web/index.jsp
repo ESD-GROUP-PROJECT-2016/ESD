@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 09-Mar-2016, 16:52:19
-    Author     : me-aydin
+    Author     : Lewis
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,7 +20,7 @@
         }
         h2{
             color:lightgray;
-            text-align:center;
+            text-align:left;
             font-family:calibri;
             font-size:150%;
         }

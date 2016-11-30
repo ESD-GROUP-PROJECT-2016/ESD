@@ -42,10 +42,10 @@
             <button type="button" onclick="location.href='PaymentSubmission.jsp'">Submit Claim</button>
             <br>
             <br>
-            <button type="button" onclick="submittedclaims">View Submitted Claims</button>
+            <button type="button" onclick="location.href='UserClaims.jsp'">View Submitted Claims</button>
             <br>
             <br>
-            <button type="button" onclick="viewpayments">View Payments</button>
+            <button type="button" onclick="location.href='UserPayments.jsp'">View Payments</button>
             <br>
             <br>
             <button type="button" onclick="location.href='PaymentSubmission.jsp'">Submit Payment</button>          

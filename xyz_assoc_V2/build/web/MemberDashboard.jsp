@@ -33,7 +33,7 @@
     </style>
     <body>
         <h1>XYZ Drivers Association</h1>
-        <h2>Welcome to your dashboard</h2>
+        <h2>Welcome to your administration dashboard!</h2>
         <form method="POST" action="UserService.do">
         <p/>
             View a table <br/>

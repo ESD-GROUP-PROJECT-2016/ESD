@@ -97,9 +97,26 @@ public class Jdbc {
         }
         return st;
     }
-    public Member getMember() {
+    public Member getMember(String userName) throws SQLException, ClassNotFoundException {
         Member mem = null;
+        Class.forName("com.mysql.jdbc.Driver");
         
+        Connection con = DriverManager.getConnection("jdbc:mysql//localhost/xyz_assoc", "root", "");
+        PreparedStatement statement = con.prepareStatement("SELECT * FROM members WHERE id=?");
+        
+        statement.setString(1, userName);
+        
+        ResultSet result = statement.executeQuery();
+        
+        while(result.next()) {
+            mem.setuName(result.getString("id"));
+            mem.setName(result.getString("name"));
+            mem.setAddress(result.getString("address"));
+            mem.setDob(result.getString("dob"));
+            mem.setRegDate(result.getString("dor"));
+            mem.setStatus(result.getString("status"));
+            mem.setBalance(result.getFloat("balance"));
+        }
         
         return mem;
     }

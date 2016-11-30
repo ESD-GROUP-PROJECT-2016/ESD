@@ -8,6 +8,9 @@ package com;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +34,7 @@ public class MemberLogin extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession session = request.getSession();
@@ -51,7 +54,7 @@ public class MemberLogin extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/conErr.jsp");
             }
             else {
-                
+                db.getMember(ID);
             }
             
         }
@@ -70,7 +73,13 @@ public class MemberLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(MemberLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MemberLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -84,7 +93,13 @@ public class MemberLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(MemberLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MemberLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

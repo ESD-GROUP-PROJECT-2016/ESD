@@ -46,6 +46,14 @@ public class MemberLogin extends HttpServlet {
         else {
             String ID = request.getParameter("UserName");
             String pass = request.getParameter("Password");
+            
+            if (db.checkMember(ID, pass) != true) {
+                request.getRequestDispatcher("/WEB-INF/conErr.jsp");
+            }
+            else {
+                
+            }
+            
         }
         
     }

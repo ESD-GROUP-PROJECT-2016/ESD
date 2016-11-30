@@ -83,6 +83,27 @@ public class Jdbc {
         }
     }
     
+    public boolean checkMember(String id, String password) {
+        boolean st = false;
+        try {
+            PreparedStatement ps3 = connection.prepareStatement("select * from users where id=? and password=?");
+            ps3.setString(1, id);
+            ps3.setString(2, password);
+            ResultSet rs = ps3.executeQuery();
+            st = rs.next();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return st;
+    }
+    public Member getMember() {
+        Member mem = null;
+        
+        
+        return mem;
+    }
+    
     private ArrayList rsToList() throws SQLException {
         ArrayList aList = new ArrayList();
 

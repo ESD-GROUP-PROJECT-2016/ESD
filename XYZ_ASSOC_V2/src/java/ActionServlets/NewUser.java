@@ -6,12 +6,15 @@
 package ActionServlets;
 
 import java.io.IOException;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Jdbc;
+import model.Member;
+import model.User;
 
 /**
  *
@@ -34,30 +37,50 @@ public class NewUser extends HttpServlet {
         
         HttpSession session = request.getSession(false);
         
-        String [] query = new String[2];
-        query[0] = (String)request.getParameter("username");
-        query[1] = (String)request.getParameter("password");
-        //String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('";
-      
-        Jdbc jdbc = (Jdbc)session.getAttribute("dbbean"); 
-        
-        if (jdbc == null)
-            request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
-        
-        if(query[0].equals("") ) {
-            request.setAttribute("message", "Username cannot be NULL");
-        } 
-        else if(jdbc.exists(query[0])){
-            request.setAttribute("message", query[0]+" is already taken as username");
-        }
-        else {
-            jdbc.insert(query);
-            request.setAttribute("message", query[0]+" is added");
-        }
-         
-        request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request, response);
-    }
+        String firstName = request.getParameter("txtfirstname");
+        String lastName = request.getParameter("txtlastname");
+        String address1 = request.getParameter("txtaddressln1");
+        String address2 = request.getParameter("txtaddressln2");
+        String postcode = request.getParameter("txtpostcode");
+        String DOB = request.getParameter("txtdob");
 
+        Date CurrentDate = new Date();
+        
+        String init = firstName.substring(0, 1);
+        String userName = (init + "-" + lastName).toLowerCase();
+        
+        String Fulladress =(address1 + "," +address2);
+        
+        Member member = new Member();
+        
+        member.setuName(userName);
+        member.setName(firstName + " " + lastName);
+        member.setAddress(Fulladress + ", " + postcode);
+        member.setDob(DOB);
+        member.setDor(CurrentDate);
+        member.setStatus("APPLIED");
+        member.setBalance(10);
+        
+        
+        User user = new User();
+        
+        
+        
+        String password = (firstName+lastName);
+        
+        user.setId(userId);
+        user.setPassword(password);
+        user.setStatus("APPLIED");
+        
+        DatabaseHandler db = new DatabaseHandler();
+        
+        db.addMember(member, user);
+        
+        request.setAttribute("username", userId);
+        request.setAttribute("password", password);
+        
+        RequestDispatcher view = request.getRequestDispatcher("welcome.jsp");
+        view.forward(request, response);
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

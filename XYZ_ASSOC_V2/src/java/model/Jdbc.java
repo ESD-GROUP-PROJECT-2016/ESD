@@ -50,8 +50,8 @@ public class Jdbc {
       // connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbname.trim(), "root", "");
         
         
-        PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (?,?,?,?,?,?,?)");
-        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/xyz_assoc", "root", "");
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (1,2,3,4,5,6,7)");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
                 
        // java.sql.Date dobSql = new java.sql.Date(member.getDob().getTime());
        // java.sql.Date dorSql = new java.sql.Date(member.getRegDate().getTime());
@@ -67,7 +67,7 @@ public class Jdbc {
         ps.executeUpdate();
         
         //Users structure ('id', 'password', 'status')
-        PreparedStatement userPs = connection.prepareStatement("INSET INTO users(id, password, status) VALUES (?,?,?)");
+        PreparedStatement userPs = connection.prepareStatement("INSET INTO users(id, password, status) VALUES (1,2,3)");
         
         userPs.setString(1, user.getuName());
         userPs.setString(2, user.getPassword());

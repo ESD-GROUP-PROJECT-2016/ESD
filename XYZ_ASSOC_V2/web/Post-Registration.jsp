@@ -22,7 +22,7 @@
             
             <br>
             <br>
-            <a href="index.jsp" class="button waves-effect waves-light btn"><i class="material-icons right">forward</i>Click here to log in(once you have written these details down)</a>
+            <a href="index.jsp">Click here to log in(once you have written these details down)</a>
         </div>
     </body>
 </html>

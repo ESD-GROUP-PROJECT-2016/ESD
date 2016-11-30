@@ -38,10 +38,10 @@
                 <TABLE>
                     <TR>
                         <TD>Username:</TD>
-                        <TD> <INPUT TYPE="Text" NAME="UserName" SIZE="40"></TD>
+                        <TD> <INPUT id = "username" TYPE="Text" NAME="UserName" SIZE="40"></TD>
                     <TR>
                         <TD>Password:</TD>
-                        <TD><INPUT TYPE="Password" NAME="Password" SIZE="40"></TD>
+                        <TD><INPUT id = "password" TYPE="Password" NAME="Password" SIZE="40"></TD>
                     </TR>
                     <TR>
                         <TD align=center><INPUT TYPE="Submit" VALUE="Login">

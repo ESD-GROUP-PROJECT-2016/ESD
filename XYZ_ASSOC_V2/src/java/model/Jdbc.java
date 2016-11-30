@@ -47,17 +47,30 @@ public class Jdbc {
         try {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           Class.forName("com.mysql.jdbc.Driver");
 
 =======
+=======
+          Class.forName("com.mysql.jdbc.Driver");
+
+>>>>>>> origin/master
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         String dbname = "xyz_assoc";
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dbname.trim(), "root", "");
         
+<<<<<<< HEAD
         PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (1,2,3,4,5,6,7)");
 >>>>>>> login edits
 =======
           Class.forName("com.mysql.jdbc.Driver");
+
+>>>>>>> origin/master
+=======
+      //  PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (1,2,3,4,5,6,7)");
+
+          Class.forName("com.mysql.jdbc.Driver");
+
 
 >>>>>>> origin/master
         connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
@@ -113,7 +126,7 @@ public class Jdbc {
         return st;
     }
     public Member getMember(String userName) throws SQLException, ClassNotFoundException {
-        Member mem = null;
+        Member mem = new Member();
        try {
         Class.forName("com.mysql.jdbc.Driver");
         
@@ -267,7 +280,13 @@ public class Jdbc {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static void main(String[] args) throws SQLException {
+=======
+}
+
+//    public static void main(String[] args) throws SQLException {
+>>>>>>> origin/master
 //        String str = "select * from users";
 //        String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('meaydin', 'meaydin')";
 //        String update = "UPDATE `Users` SET `password`='eaydin' WHERE `username`='eaydin' ";
@@ -295,8 +314,12 @@ public class Jdbc {
         
  //       System.out.println(jdbc.retrieve(str));
    //     jdbc.closeAll();
+<<<<<<< HEAD
     }            
 =======
                
 >>>>>>> login edits
 }
+=======
+ //   }            
+>>>>>>> origin/master

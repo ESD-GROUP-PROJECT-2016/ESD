@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Jdbc;
 import model.Member;
+import model.DBHelper;
 
 /**
  *
@@ -39,28 +40,30 @@ public class MemberLogin extends HttpServlet {
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         
-       // HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         
         Connection connection = null;
-        Jdbc db = new Jdbc();
         String url = "jdbc:mysql://localhost:3306/xyz_assoc";
         connection = DriverManager.getConnection(url, "root", "");
-        db.connect(connection); //(Connection) request.getServletContext().getAttribute("connection")
-       // session.setAttribute("dbbean", db);
+        
+        DBHelper db = new DBHelper();
+        db.connect(connection);
+        session.setAttribute("dbbean", db);
+        
+        
+        String ID = request.getParameter("username");
+        String pass = request.getParameter("password");     
         
         if (connection == null) {
-            request.getRequestDispatcher("/WEB-INF/conErr.jsp");
+            request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
         } 
-        else {
-            String ID = request.getParameter("UserName");
-            String pass = request.getParameter("Password");
-            
-            if (db.checkMember(ID, pass) != true) {
-                request.getRequestDispatcher("/WEB-INF/conErr.jsp");
+        else {            
+            if (db.checkMember(ID, pass) == true) {
+                request.getRequestDispatcher("MemberDashboard.jsp").forward(request, response);
             }
             else {
                // Member mem = db.getMember(ID);
-                request.getRequestDispatcher("MemberDashboard.jsp");
+                request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
                 
             }
             

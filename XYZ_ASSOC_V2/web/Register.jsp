@@ -7,6 +7,30 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <script>
+        $('.datepicker').pickadate({
+            formatSubmit: 'yyyy-mm-dd'
+        });
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+        $("#lookup").click(function () {
+            var postcode = $('#postcode').val();
+            var apiKey = "AYNEiPCuzkyW_QpLcrtL8g6560";
+            var url = "https://api.getAddress.io/v2/uk/" + postcode + "?api-key=" + apiKey;
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result.Addresses);
+                    for (i = 0; i < result.Addresses.length; i++) {
+                        $("#addressChooser").append("<option value='" + result.Addresses[i] + "'>" + result.Addresses[i] + "</option>");
+                    }
+                    $('select').material_select();
+                    $("#submitButton").removeClass("disabled");
+                }});
+        });
+    </script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration</title>
@@ -20,7 +44,7 @@
         }
         h2{
             color:lightgray;
-            text-align:left;
+            text-align:center;
             font-family:calibri;
             font-size:150%;
         }
@@ -36,65 +60,44 @@
     <body>
         <form action="NewUser.do" method="post"name="frmAddCustomer"> 
             <!--onsubmit="return validateuser1()">-->
-  <table width="329" border="0" cellspacing="3">
-      <tr >
-      <td width="74" ><div align="left">First Name: </div></td>
-      <td width="242"><input name="txtFirstName" type="text"></td>
-    </tr>
-    <tr>
-      <td><p align="left">Surname:</p></td>
-      <td><input name="txtlastname" type="text" id="txtlastname"></td>
-    </tr>
-      <tr>
-      <td><p align="left">Address line 1:</p></td>
-      <td><input name="txtaddressln1" type="text" id="txtaddressln1"></td>
-    </tr>
-    <tr>
-      <td><p align="left">Address line 2:</p></td>
-      <td><input name="txtaddressln2" type="text" id="txtaddressln2"></td>
-    </tr>
-    <tr>
-        <td><label for="postcode">Postcode</label></td>
-        <td><input id="postcode" type="text" name="postcode"></td>
-    <tr>
-    <button align="left" type="button" id="lookup" >Lookup postcode
-                    <i>Search</i>
-                </button>
-  </tr>
-  <tr>
-      <td>
-          <div align="left">Date of Birth:</div></td>
-      <td><input id="DOB" type="date" name="txtdob"></td>
-  </tr>
-  </table>
-  <p>
-    <input type="submit" name="Submit" value="Submit" >
-  </p>
-</form>
-            <script>
-        $('.datepicker').pickadate({
-            formatSubmit: 'yyyy-mm-dd'
-        });
-        $(document).ready(function () {
-            $('select').material_select();
-        });
-        $("#lookup").click(function () {
-            var postcode = $('#postcode').val();
-            var apiKey = "AYNEiPCuzkyW_QpLcrtL8g6560"
-            var url = "https://api.getAddress.io/v2/uk/" + postcode + "?api-key=" + apiKey;
+            <table align="center" width="500" border="0" cellspacing="3">
+                <tr>
+                <div>
+                    <td><label for="firstname">First Name:</label></td>
+                    <td><input id="firstname" type="text" name="firstname"></td>
+                </div>
+                </tr>
+                <tr>
+                <div>
+                    <td><label for="surname">Surname: </label></td>
+                    <td><input id="surname" type="text" name="surname"></td>
+                </div>
+                </tr>
+                <tr>
+                <div>
+                    <td><label for="dob">Date of Birth:</label></td>
+                    <td> <input id="DOB" type="date" name="DOB"></td>
+                </div>
+                </tr>
+                <tr>      
+                <div>
+                    <td><label for="postcode">Postcode</label></td>
+                    <td> <input id="postcode" type="text" name="postcode"></td>
+                </div>
+                <td><button align="left" type="button" id="lookup" >Lookup Postcode
+                    </button>
+                <tr>
+                    <td><label>Select address</label></td>
+                    <td><select id="addressChooser" name="address"></select></td>
+                </tr>               
+                </div>
+                <tr>
+                </tr>
+                <tr>
 
-            $.ajax({
-                url: url,
-                dataType: 'json',
-                success: function (result) {
-                    console.log(result.Addresses);
-                    for (i = 0; i < result.Addresses.length; i++) {
-                        $("#addressChooser").append("<option value='" + result.Addresses[i] + "'>" + result.Addresses[i] + "</option>");
-                    }
-                    $('select').material_select();
-                    $("#submitButton").removeClass("disabled");
-                }});
-        });
-    </script>
+                    <td><td><input type="submit" name="Submit" value="Submit" ></td></td>
+                </tr>
+            </table>    
+        </form>
     </body>
 </html>

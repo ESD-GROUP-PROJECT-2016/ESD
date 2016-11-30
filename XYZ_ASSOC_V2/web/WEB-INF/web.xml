@@ -10,11 +10,11 @@
     </servlet>
     <servlet>
         <servlet-name>NewUser</servlet-name>
-        <servlet-class>pages.NewUser</servlet-class>
+        <servlet-class>ActionServlets.NewUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Update</servlet-name>
-        <servlet-class>pages.Update</servlet-class>
+        <servlet-class>ActionServlets.Update</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServLet</servlet-name>

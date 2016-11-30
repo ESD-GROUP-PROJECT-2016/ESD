@@ -29,14 +29,14 @@ public class User_Filter implements Filter{
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest httpReq = (HttpServletRequest) request;
-        HttpServletResponse httpResp = (HttpServletResponse) response;
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-        HttpSession session = httpReq.getSession(false);
+        HttpSession session = httpRequest.getSession(false);
 
         if (session != null) {
             if (session.getAttribute("user-authenticated") == null) {
-                httpResp.sendRedirect("login-error.jsp");
+                httpResponse.sendRedirect("login-error.jsp");
             } else {
                 chain.doFilter(request, response);
             }

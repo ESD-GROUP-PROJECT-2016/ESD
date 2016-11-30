@@ -48,8 +48,7 @@ public class Jdbc {
         Class.forName("com.mysql.jdbc.Driver");
         connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
         
-        PreparedStatement ps = null;
-        String query = "INSERT INTO members VALUES (?,?,?,?,?,?,?)";
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO members VALUES (?,?,?,?,?,?,?)");
         
         java.sql.Date dobSql = new java.sql.Date(member.getDob().getTime());
         java.sql.Date dorSql = new java.sql.Date(member.getRegDate().getTime());
@@ -62,6 +61,15 @@ public class Jdbc {
         ps.setDate(5, dorSql);
         ps.setString(6, "APPLIED");
         ps.setFloat(7, member.getBalance());
+        ps.executeUpdate();
+        
+        //Users structure ('id', 'password', 'status')
+        PreparedStatement userPs = connection.prepareStatement("INSET INTO users VALUES (?,?,?)");
+        
+        userPs.setString(1, user.getuName());
+        userPs.setString(2, user.getPassword());
+        userPs.setString(3, user.getStatus());
+        userPs.executeUpdate();
         
         }
         catch (Exception e) {

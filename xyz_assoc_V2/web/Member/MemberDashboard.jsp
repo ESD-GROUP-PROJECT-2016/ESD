@@ -39,7 +39,7 @@
             <p1>
             <br>
             <br>
-            <button type="button" onclick="submitclaim.java">Submit Claim</button>
+            <button type="button" onclick="location.href='PaymentSubmission.jsp'">Submit Claim</button>
             <br>
             <br>
             <button type="button" onclick="submittedclaims">View Submitted Claims</button>

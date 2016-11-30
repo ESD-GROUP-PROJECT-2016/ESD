@@ -53,15 +53,15 @@ public class Jdbc {
         PreparedStatement ps = connection.prepareStatement("INSERT INTO 'members' ('id', 'name', 'address', 'dob', 'dor', 'status', 'balance') VALUES (?,?,?,?,?,?,?)");
         //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/xyz_assoc", "root", "");
                 
-        java.sql.Date dobSql = new java.sql.Date(member.getDob().getTime());
-        java.sql.Date dorSql = new java.sql.Date(member.getRegDate().getTime());
+       // java.sql.Date dobSql = new java.sql.Date(member.getDob().getTime());
+       // java.sql.Date dorSql = new java.sql.Date(member.getRegDate().getTime());
         
         //Members structure (`id`, `name`, `address`, `dob`, `dor`, `status`, `balance`)
         ps.setString(1, member.getuName());
         ps.setString(2, member.getName());
         ps.setString(3, member.getAddress());
-        ps.setDate(4, dobSql);
-        ps.setDate(5, dorSql);
+        ps.setString(4, member.getDob());
+        ps.setString(5, member.getRegDate());
         ps.setString(6, "APPLIED");
         ps.setFloat(7, member.getBalance());
         ps.executeUpdate();

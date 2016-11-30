@@ -55,7 +55,9 @@ public class NewUser extends HttpServlet {
         Date CurrentDate = new Date();
         
         SimpleDateFormat dobFormat = new SimpleDateFormat("dd-MM-yyyy");
-        Date dob = dobFormat.parse(DOB);
+       // Date dob = dobFormat.parse(DOB);
+        
+        String currDate = dobFormat.format(CurrentDate);
         
         String init = firstName.substring(0, 1);
         String userName = (init + "-" + lastName).toLowerCase();
@@ -68,7 +70,7 @@ public class NewUser extends HttpServlet {
         member.setName(firstName + " " + lastName);
       //  member.setAddress(Fulladress + ", " + postcode);
        // member.setDob(dob);
-        member.setRegDate(CurrentDate);
+        member.setRegDate(currDate);
         member.setStatus("APPLIED");
         member.setBalance(10);       
         

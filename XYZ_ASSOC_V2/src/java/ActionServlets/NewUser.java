@@ -6,6 +6,7 @@
 package ActionServlets;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -73,20 +74,27 @@ public class NewUser extends HttpServlet {
         User user = new User();          
         
         String password = (firstName+lastName);
+        //Create backwards password---------------------------------------------------------------
         
         user.setuName(userName);
         user.setPassword(password);
         user.setStatus("APPLIED");
         
         Jdbc db = new Jdbc();
+        db.connect((Connection) request.getServletContext().getAttribute("connection"));
         
         db.addMember(member, user);
         
-        request.setAttribute("username", userName);
-        request.setAttribute("password", password);
+        if ((Connection)request.getServletContext().getAttribute("connection")==null) {
+            request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
+        }
+        else {
+            request.setAttribute("username", userName);
+            request.setAttribute("password", password);
         
-        RequestDispatcher view = request.getRequestDispatcher("Post-Registration.jsp");
-        view.forward(request, response);
+            RequestDispatcher view = request.getRequestDispatcher("Post-Registration.jsp");
+            view.forward(request, response);
+        }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

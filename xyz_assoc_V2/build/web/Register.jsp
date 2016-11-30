@@ -15,7 +15,7 @@
             locality: 'long_name',
             administrative_area_level_1: 'short_name',
             country: 'long_name',
-            postcode: 'short_name'
+            postal_code: 'short_name'
         };
 
         function initAutocomplete() {
@@ -140,7 +140,7 @@
             </tr>
             <tr>
                 <td class="label">Post Code:</td>
-                <td class="wideField"><input class="field" id="postcode"
+                <td class="wideField"><input class="field" id="postal_code"
                                              disabled="true"></input></td>
             </tr>
             <form action="NewUser.do" method="post"name="frmAddCustomer"> 

@@ -96,7 +96,7 @@
     </style>
     <h1>XYZ Drivers Association</h1>
     <h2>Please enter your details to register...</h2>
-    <body>
+    <body><form action="NewUser.do" method="post"name="frmAddCustomer"> 
         <table align="center" id="address">
             <tr>
                 <td class="">First Name:</label></td>
@@ -143,7 +143,7 @@
                 <td class="wideField"><input class="field" id="postal_code"
                                              disabled="true"></input></td>
             </tr>
-            <form action="NewUser.do" method="post"name="frmAddCustomer"> 
+            
                 <!--onsubmit="return validateuser1()">-->
                 <table align="center" width="500" border="0" cellspacing="3">             
                     </div>

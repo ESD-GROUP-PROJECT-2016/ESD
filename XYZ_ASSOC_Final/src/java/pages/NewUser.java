@@ -7,6 +7,8 @@ package pages;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,8 +42,8 @@ public class NewUser extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession(false);
-        
+        HttpSession sessionUser = request.getSession(false);
+        HttpSession sessionMem = request.getSession(false);
         String firstname = request.getParameter("firstname");
         String surname = request.getParameter("surname");
         String dob = request.getParameter("dob");
@@ -77,26 +79,33 @@ public class NewUser extends HttpServlet {
        MemberQuery[5] = "APPLIED";
        MemberQuery[6] = "0";
        
-       
-                     
+    
+       Connection conn = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/xyz_assoc", "root", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-            
-        Jdbc jdbc = (Jdbc)session.getAttribute("dbbean"); 
-       // Jdbc jdbcMem = (Jdbc)session.getAttribute("dbbean"); 
-      
+        
+        Jdbc jdbc = new Jdbc();
+        jdbc.connect(conn);
+        
+  
         if (jdbc == null)
             request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
-        
-        // if (jdbcMem == null)
-         //  request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
         
    
          if(MemberQuery[0].equals("")||UserQuery[0].equals("") ) {
             request.setAttribute("message", "Username cannot be NULL");
         } 
         else {
-            jdbc.insertUser(UserQuery);
             jdbc.insertMember(MemberQuery);
+            jdbc.insertUser(UserQuery);
+            
             request.setAttribute("message", UserQuery[0]+" is added");
             request.setAttribute("message", MemberQuery[0]+" is added");
             request.getRequestDispatcher("index.jsp").forward(request, response);

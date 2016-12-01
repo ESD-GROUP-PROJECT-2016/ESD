@@ -158,9 +158,5 @@
         </form>          
     </body>
     <br>
-<<<<<<< HEAD
-=======
-    <a href="Post-Registration.jsp"><button>Submit</button></a>
 
->>>>>>> origin/master
 </html>

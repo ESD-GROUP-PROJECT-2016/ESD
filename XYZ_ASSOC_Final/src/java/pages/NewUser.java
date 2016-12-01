@@ -40,13 +40,13 @@ public class NewUser extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
+            throws ServletException, IOException, ParseException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession sessionUser = request.getSession(false);
         HttpSession sessionMem = request.getSession(false);
         String firstname = request.getParameter("firstname");
         String surname = request.getParameter("surname");
-        String dob = request.getParameter("dob");
+        String dob = (request.getParameter("dob"));
         String street_number = request.getParameter("street_number");
         String postal_code = request.getParameter("postal_code");
         String locality = request.getParameter("locality");
@@ -56,16 +56,12 @@ public class NewUser extends HttpServlet {
        
         String FullAddress =(street_number +","+ locality +","+ postal_code);
         String FullName = (firstname+" "+surname);
-        SimpleDateFormat dobFormat = new SimpleDateFormat("dd-mm-yyyy");
        
         String init = firstname.substring(0, 1);
         String userName = (init + "-" + surname).toLowerCase();
        String password = dob;
 
-
-// String DOB = dobFormat.parse(dob);
-        //Date currDat = dobFormat.parse((CurrentDate).toString());
-        String [] UserQuery = new String[3];
+     String [] UserQuery = new String[3];
         UserQuery[0] = userName;
         UserQuery[1] = password;
         UserQuery[2] = "APPLIED";
@@ -129,6 +125,8 @@ public class NewUser extends HttpServlet {
             processRequest(request, response);
         } catch (ParseException ex) {
             Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -146,6 +144,8 @@ public class NewUser extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
+            Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

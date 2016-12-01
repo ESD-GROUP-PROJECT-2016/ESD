@@ -15,6 +15,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Time;
 import static java.sql.Types.NULL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -150,26 +152,31 @@ public class Jdbc {
          
     }
     
-       public void insertMember(String[] str){
+       public void insertMember(String[] str) throws ParseException, SQLException{
         PreparedStatement ps=null;
-        try {
-            ps = connection.prepareStatement("INSERT INTO members VALUES (?,?,?,?,?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setString(1, str[0].trim()); 
-            ps.setString(2, str[1]);
-            ps.setString(3, str[2]);
-            ps.setString(4, str[3]);
-            ps.setString(5, str[4]);
-            ps.setString(6, str[5]);
-            ps.setString(7, str[6]);
-            ps.executeUpdate();
+
+       SimpleDateFormat dobFormat = new SimpleDateFormat("dd-mm-yy");
+     
+     //   java.sql.Date sqlDate = new java.sql.Date(currDat.getTime());
         
-            ps.close();
+//     Date DDOB =    ((dobFormat.parse(str[3])).getTime());
+    //ps = connection.prepareStatement("INSERT INTO members VALUES (?,?,?,?,?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
+    String SQL ="INSERT INTO MEMBERS (id,name,address,dob,dor,status,balance)VALUES('"+str[0].trim()+"','"+str[1]+"','"+str[2]+"','"+str[3]+"','"+str[4]+"','"+str[5]+"','"+str[6]+"',)";
+           // ps.setString(1, str[0].trim()); 
+            //ps.setString(2, str[1]);
+            //ps.setString(3, str[2]);
+            //ps.setString(4, (str[3]));
+            //ps.setString(5, str[4]);
+            //ps.setString(6, str[5]);
+            //ps.setString(7, str[6]);
+            statement = connection.createStatement();
+            
+            statement.executeUpdate(SQL);/// NEEDS TO BE A DATE FORMAT AND HARD TO CONVERT to date format for in sql
+        
+        
+            statement.close();
             System.out.println("1 row added.");
-        } catch (SQLException ex) {
-            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
-    }
     public void update(String[] str) {
         PreparedStatement ps = null;
         try {

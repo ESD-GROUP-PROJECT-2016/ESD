@@ -44,13 +44,11 @@ public class Jdbc {
     }
     
     public Boolean isMember(String id, String pass) {
-        String ID = id;
-        String PASS = pass;
         boolean st = false;
         try {
             PreparedStatement query = connection.prepareStatement("SELECT * FROM users WHERE id=? AND password=?");
-            query.setString(1, ID);
-            query.setString(2, PASS);
+            query.setString(1, id);
+            query.setString(2, pass);
           rs = query.executeQuery();
           
             st = rs.next();

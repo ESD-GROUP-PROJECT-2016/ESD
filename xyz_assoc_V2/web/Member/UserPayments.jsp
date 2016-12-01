@@ -14,6 +14,7 @@
     <body>
         <h1>Hello World!</h1>
     </body>
+    <br>
     <button type="button" onclick="location.href='MemberDashboard.jsp'">Back to Dashboard</button>
     <button type="button" onclick="location.href='index.jsp'">Logout</button>
 </html>

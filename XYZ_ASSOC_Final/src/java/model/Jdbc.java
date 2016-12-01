@@ -43,20 +43,19 @@ public class Jdbc {
        connection = con;
     }
     
-    public Boolean isMember(String id, String pass) {
-        boolean st = false;
-        try {
-            PreparedStatement query = connection.prepareStatement("SELECT * FROM users WHERE id=? AND password=?");
-            query.setString(1, id);
-            query.setString(2, pass);
-          rs = query.executeQuery();
-          
-            st = rs.next();
+    public Boolean isMember(String id, String pass) throws SQLException {
+        int st = 0;
+        Boolean isMember=false;
+       
+        String query = "SELECT * FROM users WHERE id='"+id+"' AND password='"+pass+"'";
 
-        } catch (SQLException ex) {
-            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return st;
+          statement = connection.createStatement();
+          st =  statement.executeUpdate(query);        
+
+          if (st==1) {
+            isMember= true;
+          }
+        return isMember;
     }
     
     private ArrayList rsToList() throws SQLException {

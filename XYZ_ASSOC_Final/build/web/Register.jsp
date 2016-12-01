@@ -152,5 +152,7 @@
             </form>          
     </body>
     <br>
+    <a href="Post-Registration.jsp"><button>Submit</button></a>
     <input align='center' type="submit" name="Submit" value="Submit" >
+    <button type="button" onclick="location.href = 'index.jsp'">Back to login</button>
 </html>

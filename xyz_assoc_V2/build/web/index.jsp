@@ -33,7 +33,7 @@
     </style>
     <body align='center'>
         <h1>XYZ Drivers Association</h1>
-        <h2>Welcome! Please log in to continue.</h2>
+        <h2>Welcome! <br><br>Please log in to continue...</h2>
         <form action="MemberLogin.do" method="POST">  
                 <TABLE align='center'>
                     <TR>
@@ -46,14 +46,11 @@
                 </TABLE>
             <tr>
                 <TD align=center><INPUT TYPE="Submit" VALUE="Login"></td>
-                <td> & </td>     <td>  <INPUT TYPE="RESET"></TD>
+                <td> </td>     <td>  <INPUT TYPE="RESET"></TD>
             </tr>
             
         </FORM>
-        <table>
-            <tr>
-            <button type="button" onclick="location.href='Register.jsp'">Register</button>    
-            </tr>
-        </table>
-        
+        <br>
+        <br>
+            <button type="button" onclick="location.href='Register.jsp'">Register</button>           
 </html>

@@ -34,7 +34,10 @@
     <body>
         <h1>XYZ Drivers Association</h1>
         <h2>Payment Portal</h2>
-    <p1>Press 'Submit Payment' to submit your payment.</p1>
-    <button type="button" onclick="alert('Payment successful!')">Submit Payment</button>
-    </body>
+    <p1>Enter the amount and click 'Submit' to submit your payment.</p1>
+    <input id="surname" type="text" name="surname">
+    <button type="button" onclick="alert('Payment successful!')">Submit Payment</button>  
+</body>
+<button type="button" onclick="location.href = 'MemberDashboard.jsp'">Back to Dashboard</button>
+<button type="button" onclick="location.href = 'index.jsp'">Logout</button>
 </html>

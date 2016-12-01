@@ -55,10 +55,9 @@ public class MemberLogin extends HttpServlet {
         } 
         else {            
             if (dbBean.isMember(ID, pass)) {
-                request.getRequestDispatcher("MemberDashboard.jsp").forward(request, response);
+                request.getRequestDispatcher("/Member/MemberDashboard.jsp").forward(request, response);
             }
             else {
-               // Member mem = db.getMember(ID);
                 request.getRequestDispatcher("/LoginError.jsp").forward(request, response);
                 
             }

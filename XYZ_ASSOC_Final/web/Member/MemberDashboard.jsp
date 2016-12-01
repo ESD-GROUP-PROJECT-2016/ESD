@@ -7,7 +7,7 @@
 <%@page import="model.Member"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html align="center">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Dashboard</title>
@@ -50,7 +50,7 @@
             <button type="button" onclick="location.href='PaymentSubmission.jsp'">Submit Payment</button>          
             <br>
             <br>                                    
-            <button type="button" onclick="location.href='index.jsp'">Logout</button>
+            <a href="WEB-INF/index.jsp"><button>Logout</button></a>
             </p1>
         </form> 
     </body>

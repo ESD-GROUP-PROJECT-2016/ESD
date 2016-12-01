@@ -32,10 +32,12 @@
         <servlet-name>Update</servlet-name>
         <url-pattern>/Update.do</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>MemberLogin</servlet-name>
         <url-pattern>/MemberLogin.do</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

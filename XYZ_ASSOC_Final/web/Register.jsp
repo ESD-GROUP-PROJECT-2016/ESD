@@ -152,5 +152,5 @@
             </form>          
     </body>
     <br>
-    <input align='center' type="submit" name="Submit" value="Submit" >
+    <a href="Post-Registration.jsp"><button>Submit</button></a>
 </html>

@@ -20,7 +20,7 @@
         }
         h2{
             color:lightgray;
-            text-align:left;
+            text-align:center;
             font-family:calibri;
             font-size:150%;
         }
@@ -31,13 +31,17 @@
             font-size:100%   
         }         
     </style>
-    <body>
+    <body align='center'>
         <h1>XYZ Drivers Association</h1>
         <h2>Payment Portal</h2>
     <p1>Enter the amount and click 'Submit' to submit your payment.</p1>
-    <input id="surname" type="text" name="surname">
-    <button type="button" onclick="alert('Payment successful!')">Submit Payment</button>  
+    <br>
+    <br>
+    <input id="payment" type="text" name="payment">
+    <button type="button" onclick="alert('Payment of £' + payment + ' successful!')">Submit Payment</button>  
 </body>
+<br>
+<br>
 <button type="button" onclick="location.href = 'MemberDashboard.jsp'">Back to Dashboard</button>
 <button type="button" onclick="location.href = 'index.jsp'">Logout</button>
 </html>

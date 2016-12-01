@@ -46,16 +46,14 @@ public class Jdbc {
     public Boolean isMember(String id, String pass) {
         String ID = id;
         String PASS = pass;
-        boolean st = true;
+        boolean st = false;
         try {
-            PreparedStatement query = connection.prepareStatement("select * from users where id=? and password=?");
+            PreparedStatement query = connection.prepareStatement("SELECT * FROM users WHERE id=? AND password=?");
             query.setString(1, ID);
             query.setString(2, PASS);
           rs = query.executeQuery();
           
-            if (rs.next() == false) {
-                st = false;
-            }
+            st = rs.next();
 
         } catch (SQLException ex) {
             Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
@@ -136,13 +134,34 @@ public class Jdbc {
         }
         return bool;
     }
-    public void insert(String[] str){
+    public void insertUser(String[] str){
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement("INSERT INTO Users VALUES (?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, str[0].trim()); 
             ps.setString(2, str[1]);
             ps.setString(3, str[2]);
+            ps.executeUpdate();
+        
+            ps.close();
+            System.out.println("1 row added.");
+        } catch (SQLException ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+    }
+    
+       public void insertMember(String[] str){
+        PreparedStatement ps = null;
+        try {
+            ps = connection.prepareStatement("INSERT INTO Members VALUES (?,?,?,?,?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setString(1, str[0].trim()); 
+            ps.setString(2, str[1]);
+            ps.setString(3, str[2]);
+            ps.setString(4, str[3]);
+            ps.setString(5, str[4]);
+            ps.setString(6, str[5]);
+            ps.setString(7, str[6]);
             ps.executeUpdate();
         
             ps.close();
@@ -210,7 +229,7 @@ public class Jdbc {
         String [] users = {"birgul12","han","han"};
         System.out.println(jdbc.retrieve(str));
         if (!jdbc.exists(users[0]))
-            jdbc.insert(users);            
+            jdbc.insertUser(users);            
         else {
                 jdbc.update(users);
                 System.out.println("user name exists, change to another");

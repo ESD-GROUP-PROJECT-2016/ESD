@@ -6,12 +6,21 @@
 package pages;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Jdbc;
+//import model.Member;
+//import model.User;
 
 /**
  *
@@ -29,31 +38,64 @@ public class NewUser extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-        
         HttpSession session = request.getSession(false);
         
-        String [] query = new String[3];
-        query[0] = (String)request.getParameter("username");
-        query[1] = (String)request.getParameter("password");
-        query[2] = "status complete";
-              //  String insert = "INSERT INTO `Users` (`id`, `password`,'status') VALUES ('";
-      
+        String firstname = request.getParameter("firstname");
+        String surname = request.getParameter("surname");
+        String dob = request.getParameter("dob");
+        String street_number = request.getParameter("street_number");
+        String postal_code = request.getParameter("postal_code");
+        String locality = request.getParameter("locality");
+        
+     String CurrentDate = (new Date()).toString();
+        
+       
+        String FullAddress =(street_number +","+ locality +","+ postal_code);
+        String FullName = (firstname+" "+surname);
+        SimpleDateFormat dobFormat = new SimpleDateFormat("dd-mm-yyyy");
+       
+        String init = firstname.substring(0, 1);
+        String userName = (init + "-" + surname).toLowerCase();
+       String password = dob;
+
+
+// String DOB = dobFormat.parse(dob);
+        //Date currDat = dobFormat.parse((CurrentDate).toString());
+        String [] UserQuery = new String[3];
+        UserQuery[0] = userName;
+        UserQuery[1] = password;
+        UserQuery[2] = "APPLIED";
+             
+        String [] MemberQuery = new String[7];
+       MemberQuery[0] = userName;
+       MemberQuery[1] = FullName;
+       MemberQuery[2] = FullAddress;
+       MemberQuery[3] = dob;
+       MemberQuery[4] = CurrentDate;
+       MemberQuery[5] = "APPLIED";
+       MemberQuery[6] = "0";
+       
+       
+                     
+        
+            
         Jdbc jdbc = (Jdbc)session.getAttribute("dbbean"); 
         
         if (jdbc == null)
             request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
         
-        if(query[0].equals("") ) {
+   
+         if(MemberQuery[0].equals("")||UserQuery[0].equals("") ) {
             request.setAttribute("message", "Username cannot be NULL");
         } 
-     //   else if(jdbc.exists(query[0])){
-     //       request.setAttribute("message", query[0]+" is already taken as username");
-     //   }
         else {
-            jdbc.insert(query);
-            request.setAttribute("message", query[0]+" is added");
+            jdbc.insertUser(UserQuery);
+            jdbc.insertMember(MemberQuery);
+            request.setAttribute("message", UserQuery[0]+" is added");
+                request.setAttribute("message", MemberQuery[0]+" is added");
+            
         }
          
         request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request, response);
@@ -71,7 +113,11 @@ public class NewUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -85,7 +131,11 @@ public class NewUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

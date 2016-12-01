@@ -48,10 +48,7 @@ public class MemberLogin extends HttpServlet {
         Jdbc dbBean = new Jdbc();
         Connection connection = (Connection)request.getServletContext().getAttribute("connection");
         dbBean.connect(connection);
-        session.setAttribute("dbbean", dbBean);   
-        String query = "select * from users where id='" +
-                ID+"' and pass ='"+pass+"'";
-        
+        session.setAttribute("dbbean", dbBean);           
         
         if (connection == null) {
             request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);

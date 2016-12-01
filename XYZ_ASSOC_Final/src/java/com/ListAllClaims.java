@@ -31,11 +31,11 @@ public class ListAllClaims extends HttpServlet {
         
         Jdbc jdbc = new Jdbc();
         
-        List<Claims> claims = jdbc.getAllClaims();
+       // List<Claims> claims = jdbc.getAllClaims();
         
         HttpSession session = request.getSession(false);
         
-        session.setAttribute("claim", claims);
+      //  session.setAttribute("claim", claims);
         
         RequestDispatcher view = request.getRequestDispatcher("Admin/ListPendingClaims.jsp");
 

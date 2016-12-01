@@ -55,12 +55,15 @@ public class Jdbc {
         Class.forName("com.mysql.jdbc.Driver");
         
         PreparedStatement ps = connection.prepareStatement("INSERT INTO members VALUES (?,?,?,?,?,?,?)");
-        //Members structure (`id`, `name`, `address`, `dob`, `dor`, `status`, `balance`)
+        
+        java.sql.Date dob = new java.sql.Date(member.getDob().getTime());
+        java.sql.Date RegDate = new java.sql.Date(member.getRegDate().getTime());
+        
         ps.setString(1, member.getuName());
         ps.setString(2, member.getName());
         ps.setString(3,"1 home street"); //member.getAddress());
-        ps.setString(4, member.getDob());
-        ps.setString(5, member.getRegDate());
+        ps.setDate(4, dob);
+        ps.setDate(5, RegDate);
         ps.setString(6, "APPLIED");
         ps.setFloat(7, member.getBalance());
         ps.executeUpdate();
@@ -117,8 +120,8 @@ public class Jdbc {
             mem.setuName(result.getString("id"));
             mem.setName(result.getString("name"));
             mem.setAddress(result.getString("address"));
-            mem.setDob(result.getString("dob"));
-            mem.setRegDate(result.getString("dor"));
+            mem.setDob(result.getDate("dob"));
+            mem.setRegDate(result.getDate("dor"));
             mem.setStatus(result.getString("status"));
             mem.setBalance(result.getFloat("balance"));
         }
@@ -127,6 +130,35 @@ public class Jdbc {
            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, e);
        }
         return mem;
+    }
+    
+    public List<Member> getAllMembers() throws ClassNotFoundException, SQLException {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultset = null;
+
+        Class.forName("com.mysql.jdbc.Driver");
+
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/xyz_assoc", "root", "");
+
+        statement = connection.createStatement();
+        resultset = statement.executeQuery("SELECT * FROM members");
+
+        List<Member> members = new ArrayList<>();
+
+        while (resultset.next()) {
+//            Member member = new Member(resultSet.getString("name"), resultSet.getString("address"), resultSet.getDate("dob"), resultSet.getDate("dor"), resultSet.getString("status"), resultSet.getFloat("balance"));
+            Member member = new Member();
+            member.setuName(resultset.getString("id"));
+            member.setName(resultset.getString("name"));
+            member.setAddress(resultset.getString("address"));
+            member.setDob(resultset.getDate("dob"));
+            member.setRegDate(resultset.getDate("dor"));
+            member.setStatus(resultset.getString("status"));
+            member.setBalance(resultset.getFloat("balance"));
+            members.add(member);
+        }
+        return members;
     }
     
     private ArrayList rsToList() throws SQLException {

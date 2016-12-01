@@ -15,8 +15,8 @@ public class Member {
       private String uName;
     private String name;
     private String address;
-    private String dob;
-    private String RegDate;
+    private Date dob;
+    private Date RegDate;
     private String status;
     private float balance;
 
@@ -44,20 +44,20 @@ public class Member {
         this.status = status;
     }
 
-    public String getRegDate() {
-        return RegDate;
-    }
-
-    public void setRegDate(String RegDate) {
-        this.RegDate = RegDate;
-    }
-
-    public String getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public Date getRegDate() {
+        return RegDate;
+    }
+
+    public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    public void setRegDate(Date RegDate) {
+        this.RegDate = RegDate;
     }
 
     public String getAddress() {

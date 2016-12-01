@@ -96,22 +96,22 @@
     </style>
     <h1>XYZ Drivers Association</h1>
     <h2>Please enter your details to register...</h2>
-    <body>
+    <body><form action="NewUser.do" method="post"name="frmAddCustomer"> 
         <table align="center" id="address">
             <tr>
-                <td class="">First Name:</label></td>
+                <td class="label">First Name:</label></td>
                 <td><input id="firstname" type="text" name="firstname"></td>
             </tr>
             <tr>
-                <td class="">Last Name:</label></td>
+                <td class="label">Last Name:</label></td>
                 <td><input id="surname" type="text" name="surname"></td>
             </tr>
             <tr>
-                <td class="">Date of Birth:</label></td>
+                <td class="label">Date of Birth:</label></td>
                 <td><input id="dob" type="date" name="dob"></td>
             </tr>
             <tr>
-                <td class="">Address:</label></td>
+                <td class="label">Address:</label></td>
                 <td class="field" id="locationField">
                     <input id="autocomplete" placeholder="Enter your address"
                            onFocus="geolocate()" type="text"></input></td></td>
@@ -143,7 +143,7 @@
                 <td class="wideField"><input class="field" id="postal_code"
                                              disabled="true"></input></td>
             </tr>
-            <form action="NewUser.do" method="post"name="frmAddCustomer"> 
+            
                 <!--onsubmit="return validateuser1()">-->
                 <table align="center" width="500" border="0" cellspacing="3">             
                     </div>

@@ -38,7 +38,7 @@
                 <TABLE align='center'>
                     <TR>
                         <TD>Username:</TD>
-                        <TD> <INPUT id = "username" TYPE="Text" NAME="UserName" SIZE="40"></TD>
+                        <TD> <INPUT id = "username" TYPE="Text" NAME="Username" SIZE="40"></TD>
                     <TR>
                         <TD>Password:</TD>
                         <TD><INPUT id = "password" TYPE="Password" NAME="Password" SIZE="40"></TD>

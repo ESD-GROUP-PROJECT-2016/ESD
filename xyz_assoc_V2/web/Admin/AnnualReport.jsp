@@ -1,5 +1,5 @@
 <%-- 
-    Document   : AnnuaReport
+    Document   : AnnualReport
     Created on : 30-Nov-2016, 21:49:23
     Author     : Lewis
 --%>
@@ -14,4 +14,6 @@
     <body>
         <h1>Hello World!</h1>
     </body>
+    <button type="button" onclick="location.href='AdminDashboard.jsp'">Back to Dashboard</button>
+    <button type="button" onclick="location.href='index.jsp'">Logout</button>
 </html>

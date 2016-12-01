@@ -50,7 +50,7 @@
             <button type="button" onclick="location.href='PaymentSubmission.jsp'">Submit Payment</button>          
             <br>
             <br>                                    
-            <button type="button" onclick="location.href='index.jsp'">Logout</button>
+            <a href="WEB-INF/index.jsp"><button>Logout</button></a>
             </p1>
         </form> 
     </body>

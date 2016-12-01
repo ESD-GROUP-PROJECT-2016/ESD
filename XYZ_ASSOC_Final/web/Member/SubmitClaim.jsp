@@ -1,17 +1,16 @@
 <%-- 
-    Document   : UserPayments
-    Created on : 30-Nov-2016, 22:06:58
+    Document   : SubmitClaim
+    Created on : 01-Dec-2016, 02:21:31
     Author     : Lewis
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html align="center">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Payments</title>
+        <title>Submit Claim</title>
     </head>
-                <style>
+        <style>
         h1{
             color:dodgerblue;
             text-align:center;
@@ -32,10 +31,10 @@
         }           
     </style>
     <body>
-        <h1>Payments</h1>
-        <h2>List of all payments</h2>
+        <h1>Submit a Claim</h1>
+        <h2>Here you can submit a claim...</h2>
     </body>
     <br>
     <button type="button" onclick="location.href='MemberDashboard.jsp'">Back to Dashboard</button>
-    <button type="button" onclick="location.href='index.jsp'">Logout</button>
+    <button type="button" onclick="location.href='index.jsp'">Logout</butt
 </html>

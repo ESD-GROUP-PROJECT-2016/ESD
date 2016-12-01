@@ -38,7 +38,7 @@
         <form align="center" method="POST" action="UserService.do">
             <p1>
             <br>
-            <button type="button" onclick="location.href='PaymentSubmission.jsp'">Submit Claim</button>
+            <button type="button" onclick="location.href='SubmitClaim.jsp'">Submit Claim</button>
             <br>
             <br>
             <button type="button" onclick="location.href='UserClaims.jsp'">View Submitted Claims</button>

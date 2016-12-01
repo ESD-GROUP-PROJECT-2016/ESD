@@ -46,21 +46,21 @@ public class Jdbc {
     public Boolean isMember(String id, String pass) {
         String ID = id;
         String PASS = pass;
-        boolean st = false;
+       // boolean st = false;
         try {
-            PreparedStatement query = connection.prepareStatement("select * from users where id=? and password=?");
+            PreparedStatement query = connection.prepareStatement("SELECT * FROM users WHERE id=? AND password=?");
             query.setString(1, ID);
             query.setString(2, PASS);
           rs = query.executeQuery();
           
-            if (rs.next() == true) {
-                st = true;
+            if (rs.next() == false) {
+                return false;
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return st;
+        return true;
     }
     
     private ArrayList rsToList() throws SQLException {

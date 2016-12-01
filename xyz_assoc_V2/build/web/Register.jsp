@@ -147,10 +147,10 @@
                 <!--onsubmit="return validateuser1()">-->
                 <table align="center" width="500" border="0" cellspacing="3">             
                     </div>
-                    <tr>
-                        <td><td><input type="submit" name="Submit" value="Submit" ></td></td>
-                    </tr>
-                </table>    
-            </form>
+                </table> 
+
+            </form>          
     </body>
+    <br>
+    <input align='center' type="submit" name="Submit" value="Submit" >
 </html>

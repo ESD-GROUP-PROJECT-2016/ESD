@@ -52,5 +52,5 @@
         </FORM>
         <br>
         <br>
-            <button type="button" onclick="location.href='Register.jsp'">Register</button>           
+            <button align='center' type="button" onclick="location.href='Register.jsp'">Register</button>           
 </html>

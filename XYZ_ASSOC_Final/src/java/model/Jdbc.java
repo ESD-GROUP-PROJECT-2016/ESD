@@ -139,7 +139,7 @@ public class Jdbc {
     public void insertUser(String[] str){
         PreparedStatement ps = null;
         try {
-            ps = connection.prepareStatement("INSERT INTO Users VALUES (?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
+            ps = connection.prepareStatement("INSERT INTO users VALUES (?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, str[0].trim()); 
             ps.setString(2, str[1]);
             ps.setString(3, str[2]);
@@ -154,19 +154,19 @@ public class Jdbc {
     }
     
        public void insertMember(String[] str){
-        PreparedStatement ps = null;
+        PreparedStatement psMem = null;
         try {
-            ps = connection.prepareStatement("INSERT INTO Members VALUES (?,?,?,?,?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setString(1, str[0].trim()); 
-            ps.setString(2, str[1]);
-            ps.setString(3, str[2]);
-            ps.setString(4, str[3]);
-            ps.setString(5, str[4]);
-            ps.setString(6, str[5]);
-            ps.setString(7, str[6]);
-            ps.executeUpdate();
+            psMem = connection.prepareStatement("INSERT INTO members VALUES (?,?,?,?,?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
+            psMem.setString(1, str[0].trim()); 
+            psMem.setString(2, str[1]);
+            psMem.setString(3, str[2]);
+            psMem.setString(4, str[3]);
+            psMem.setString(5, str[4]);
+            psMem.setString(6, str[5]);
+            psMem.setString(7, str[6]);
+            psMem.executeUpdate();
         
-            ps.close();
+            psMem.close();
             System.out.println("1 row added.");
         } catch (SQLException ex) {
             Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
@@ -212,34 +212,34 @@ public class Jdbc {
         }
     }
     public static void main(String[] args) throws SQLException {
-        String str = "select * from users";
-        String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('meaydin', 'meaydin')";
-        String update = "UPDATE `Users` SET `password`='eaydin' WHERE `username`='eaydin' ";
-        String db = "MyDB";
-        
-        Jdbc jdbc = new Jdbc(str);
-        Connection conn = null;
-                try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db.trim(), "root", "");
-        }
-        catch(ClassNotFoundException | SQLException e){
-            
-        }
-                /*
-        jdbc.connect(conn);
-        String [] users = {"birgul12","han","han"};
-        System.out.println(jdbc.retrieve(str));
-        if (!jdbc.exists(users[0]))
-            jdbc.insertUser(users);            
-        else {
-                jdbc.update(users);
-                System.out.println("user name exists, change to another");
-        }
-        jdbc.delete("aydinme");
-        
-        System.out.println(jdbc.retrieve(str));
-        jdbc.closeAll();
-                        */
+//        String str = "select * from users";
+//        String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('meaydin', 'meaydin')";
+//        String update = "UPDATE `Users` SET `password`='eaydin' WHERE `username`='eaydin' ";
+//        String db = "MyDB";
+//        
+//        Jdbc jdbc = new Jdbc(str);
+//        Connection conn = null;
+//                try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db.trim(), "root", "");
+//        }
+//        catch(ClassNotFoundException | SQLException e){
+//            
+//        }
+//                /*
+//        jdbc.connect(conn);
+//        String [] users = {"birgul12","han","han"};
+//        System.out.println(jdbc.retrieve(str));
+//        if (!jdbc.exists(users[0]))
+//            jdbc.insertUser(users);            
+//        else {
+//                jdbc.update(users);
+//                System.out.println("user name exists, change to another");
+//        }
+//        jdbc.delete("aydinme");
+//        
+//        System.out.println(jdbc.retrieve(str));
+//        jdbc.closeAll();
+//                        */
     }            
 }

@@ -9,10 +9,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Payments</title>
     </head>
+                <style>
+        h1{
+            color:dodgerblue;
+            text-align:center;
+            font-family:calibri;
+            font-size:300%;
+        }
+        h2{
+            color:lightgray;
+            text-align:center;
+            font-family:calibri;
+            font-size:150%;
+        }
+        p1{
+            color:black;
+            text-align:center;
+            font-family:calibri;
+            font-size:100%   
+        }           
+    </style>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Payments</h1>
+        <h2>List of all payments</h2>
     </body>
     <br>
     <button type="button" onclick="location.href='MemberDashboard.jsp'">Back to Dashboard</button>

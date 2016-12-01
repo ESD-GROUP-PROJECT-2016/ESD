@@ -144,18 +144,18 @@
                                              disabled="true"></input></td>
             </tr>
             
-                <!--onsubmit="return validateuser1()">-->
-                <table align="center" width="500" border="0" cellspacing="3">             
-                    </div>
-                </table> 
-
-            </form>          
+             <tr>
+       
+                <td> <input align="center" type="submit"> </td>
+            </tr>
+            
+          </table> 
+                           
+                 
+                 
+    
+       
+        </form>          
     </body>
     <br>
-<<<<<<< Updated upstream
-    <a href="Post-Registration.jsp"><button>Submit</button></a>
-=======
-    <input align='center' type="submit" name="Submit" value="Submit" >
-    <button type="button" onclick="location.href = 'index.jsp'">Back to login</button>
->>>>>>> Stashed changes
 </html>

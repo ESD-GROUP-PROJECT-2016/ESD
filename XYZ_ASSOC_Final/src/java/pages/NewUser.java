@@ -82,9 +82,13 @@ public class NewUser extends HttpServlet {
         
             
         Jdbc jdbc = (Jdbc)session.getAttribute("dbbean"); 
-        
+       // Jdbc jdbcMem = (Jdbc)session.getAttribute("dbbean"); 
+      
         if (jdbc == null)
             request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
+        
+        // if (jdbcMem == null)
+         //  request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
         
    
          if(MemberQuery[0].equals("")||UserQuery[0].equals("") ) {
@@ -94,11 +98,10 @@ public class NewUser extends HttpServlet {
             jdbc.insertUser(UserQuery);
             jdbc.insertMember(MemberQuery);
             request.setAttribute("message", UserQuery[0]+" is added");
-                request.setAttribute("message", MemberQuery[0]+" is added");
-            
+            request.setAttribute("message", MemberQuery[0]+" is added");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
-         
-        request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

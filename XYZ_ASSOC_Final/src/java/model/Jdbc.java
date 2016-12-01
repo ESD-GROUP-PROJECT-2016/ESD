@@ -43,6 +43,21 @@ public class Jdbc {
        connection = con;
     }
     
+    public Boolean isMember(String id, String pass) {
+        boolean st = false;
+        try {
+            PreparedStatement ps3 = connection.prepareStatement("select * from users where id=? and password=?");
+            ps3.setString(1, id);
+            ps3.setString(2, pass);
+            ResultSet rs = ps3.executeQuery();
+            st = rs.next();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return st;
+    }
+    
     private ArrayList rsToList() throws SQLException {
         ArrayList aList = new ArrayList();
 

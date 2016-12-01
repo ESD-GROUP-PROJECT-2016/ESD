@@ -49,13 +49,15 @@ public class MemberLogin extends HttpServlet {
         Connection connection = (Connection)request.getServletContext().getAttribute("connection");
         dbBean.connect(connection);
         session.setAttribute("dbbean", dbBean);   
+        String query = "select * from users where id='" +
+                ID+"' and pass ='"+pass+"'";
         
         
         if (connection == null) {
             request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
         } 
         else {            
-            if (dbBean.checkMember(ID, pass) == true) {
+            if (dbBean.isMember(ID, pass)) {
                 request.getRequestDispatcher("MemberDashboard.jsp").forward(request, response);
             }
             else {

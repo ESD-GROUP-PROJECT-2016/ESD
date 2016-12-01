@@ -44,13 +44,18 @@ public class Jdbc {
     }
     
     public Boolean isMember(String id, String pass) {
-        boolean st = false;
+        String ID = id;
+        String PASS = pass;
+        boolean st = true;
         try {
-            PreparedStatement ps3 = connection.prepareStatement("select * from users where id=? and password=?");
-            ps3.setString(1, id);
-            ps3.setString(2, pass);
-            ResultSet rs = ps3.executeQuery();
-            st = rs.next();
+            PreparedStatement query = connection.prepareStatement("select * from users where id=? and password=?");
+            query.setString(1, ID);
+            query.setString(2, PASS);
+          rs = query.executeQuery();
+          
+            if (rs.next() == false) {
+                st = false;
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
@@ -200,6 +205,7 @@ public class Jdbc {
         catch(ClassNotFoundException | SQLException e){
             
         }
+                /*
         jdbc.connect(conn);
         String [] users = {"birgul12","han","han"};
         System.out.println(jdbc.retrieve(str));
@@ -213,5 +219,6 @@ public class Jdbc {
         
         System.out.println(jdbc.retrieve(str));
         jdbc.closeAll();
+                        */
     }            
 }

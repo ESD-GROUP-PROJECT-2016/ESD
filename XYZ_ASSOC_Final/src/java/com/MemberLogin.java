@@ -62,7 +62,7 @@ public class MemberLogin extends HttpServlet {
             }
             else {
                // Member mem = db.getMember(ID);
-                request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
+                request.getRequestDispatcher("/LoginError.jsp").forward(request, response);
                 
             }
             

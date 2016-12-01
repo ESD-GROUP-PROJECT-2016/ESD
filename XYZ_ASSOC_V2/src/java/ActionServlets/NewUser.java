@@ -42,14 +42,23 @@ public class NewUser extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         
-      //  HttpSession session = request.getSession(false);
-        
-        String firstName = request.getParameter("firstname");
-        String lastName = request.getParameter("surname");
+      HttpSession session = request.getSession(false);
+      
+      String [] query = new String[3];
+      
+      
+      
+        query[0] = request.getParameter("firstname");
+          query[1] = request.getParameter("surname");
+            query[2] = request.getParameter("dob");
+              query[3] = request.getParameter("autocomplete");
+                query[4] = request.getParameter("postal_code");
+                  query[5] = request.getParameter("firstname");
+                    query[6] = request.getParameter("postal_code");
+    
       //  String address1 = request.getParameter("txtaddressln1");
       //  String address2 = request.getParameter("txtaddressln2");
-        String postcode = request.getParameter("postcode");
-        String DOB = request.getParameter("DOB");
+      
        
 
         Date CurrentDate = new Date();

@@ -3,20 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Content;
+package pages;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Jdbc;
 
 /**
  *
- * @author TOBY WHITE
+ * @author me-aydin
  */
-public class PayMent extends HttpServlet {
+@WebServlet(name = "Delete", urlPatterns = {"/Delete.do"})
+public class Delete extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,18 +34,30 @@ public class PayMent extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PayMent</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PayMent at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+           HttpSession session = request.getSession(false);
+        
+        String [] query = new String[2];
+        query[0] = (String)request.getParameter("username");
+        query[1] = (String)request.getParameter("password");
+        //String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('";
+      
+        Jdbc jdbc = (Jdbc)session.getAttribute("dbbean"); 
+        
+        if (jdbc == null)
+            request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
+        
+        if(query[0]==null) {
+            request.setAttribute("message", "Username cannot be NULL");
+        } 
+        else if(jdbc.exists(query[0])){
+            jdbc.delete(query[0]);
+            request.setAttribute("message", "User with "+query[0]+" username is deleted");
         }
+        else {
+            request.setAttribute("message", query[0]+" does not exist");
+        }
+         
+        request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

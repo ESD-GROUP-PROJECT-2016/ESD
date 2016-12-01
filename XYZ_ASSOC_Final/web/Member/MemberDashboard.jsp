@@ -32,7 +32,7 @@
             font-size:100%   
         }           
     </style>
-    <body>
+    <body align="center">
         <h1>XYZ Drivers Association</h1>
         <h2>Your Dashboard</h2>
         <form align="center" method="POST" action="UserService.do">

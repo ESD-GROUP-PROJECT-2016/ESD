@@ -36,9 +36,9 @@
             font-size:100%   
         }           
     </style>
-    <body>
+    <body align="center">
         <h1>XYZ Drivers Association</h1>
         <h2>Oops...You have entered incorrect Login details.</h2>
-        <p1> Have no fear! You will automatically be returned to the login page!</p1>
+        <p1>You will automatically be returned to the login page!</p1>
     </body>
 </html>

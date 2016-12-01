@@ -43,7 +43,9 @@ public class Jdbc {
        connection = con;
     }
     
-    public Boolean isMember(String id, String pass) throws SQLException {
+    public Boolean isMember(String ID, String Pass) throws SQLException {
+        String id = ID;
+        String pass = Pass;
         int st = 0;
         Boolean isMember=false;
        
@@ -51,8 +53,8 @@ public class Jdbc {
 
           statement = connection.createStatement();
           st =  statement.executeUpdate(query);        
-
-          if (st==1) {
+          
+          if (st>0) {
             isMember= true;
           }
         return isMember;
